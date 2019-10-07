@@ -1,0 +1,120 @@
+{
+  "id": "nokia_virtual_router_interfaces_dashboard",
+  "user_role": "PlatformAdmin",
+  "label": "Dashboard",
+  "hasTimeFilterableData": true,
+  "input_params": {},
+  "attributes": [{
+    "key": "type",
+    "value": "custom_dashboard"
+  }],
+  "totalColumns-lg": 12,
+  "totalColumns-md": 12,
+  "totalColumns-sm": 12,
+  "totalColumns-xs": 12,
+  "rowLayout": "fixed_height",
+  "rows": [{
+      "rowIndex": 0,
+      "columns": [{
+        "componentId": "nokia_virtual_router_interfaces_component_summary_details",
+        "type": "REPORT"
+      }]
+    },
+    {
+      "rowIndex": 1,
+      "columns": [{
+        "componentId": "virtual_interface_operational_state_trending",
+        "type": "CHART"
+      }]
+    },
+    {
+      "rowIndex": 2,
+      "columns": [{
+        "componentId": "virtual_interfaces_receive_bytes_trending",
+        "type": "CHART"
+      }]
+    },
+    {
+      "rowIndex": 3,
+      "columns": [{
+        "componentId": "virtual_interfaces_transmit_bytes_trending",
+        "type": "CHART"
+      }]
+    },
+    {
+      "rowIndex": 4,
+      "columns": [{
+        "componentId": "virtual_interfaces_receive_packets_trending",
+        "type": "CHART"
+      }]
+    },
+    {
+      "rowIndex": 5,
+      "columns": [{
+        "componentId": "virtual_interfaces_transmit_packets_trending",
+        "type": "CHART"
+      }]
+    }
+  ],
+  "components": [{
+      "widgetType": "SummaryTable",
+      "widgetId": "nokia_virtual_router_interfaces_component_summary_details",
+      "id": "nokia_virtual_router_interfaces_component_summary_details",
+      "name": "Summary",
+      "type": "REPORT",
+      "contexts": {
+        "reportId": "com.cfx.device.interface.summary.details"
+      }
+    },
+    {
+      "widgetType": "TIMESERIES_LINE_CHART",
+      "widgetId": "virtual_interface_operational_state_trending",
+      "id": "trending_chart",
+      "name": "Virtual Interface Operational State",
+      "type": "CHART",
+      "contexts": {
+        "reportId": "com.cfx.device.qos.trend.VIRTUAL_INTERFACE_OPERATIONAL_STATE_TRENDING"
+      }
+    },
+    {
+      "widgetType": "TIMESERIES_LINE_CHART",
+      "widgetId": "virtual_interfaces_receive_bytes_trending",
+      "id": "adaptive_line_chart_bps",
+      "name": "Receive Bytes Trending",
+      "type": "CHART",
+      "contexts": {
+        "reportId": "com.cfx.device.qos.trend.VIRTUAL_INTERFACES_RECEIVE_BYTES_TRENDING"
+      }
+    },
+    {
+      "widgetType": "TIMESERIES_LINE_CHART",
+      "widgetId": "virtual_interfaces_transmit_bytes_trending",
+      "id": "adaptive_line_chart_bps",
+      "name": "Transmit Bytes Trending",
+      "type": "CHART",
+      "contexts": {
+        "reportId": "com.cfx.device.qos.trend.VIRTUAL_INTERFACES_TRANSMIT_BYTES_TRENDING"
+      }
+    },
+    {
+      "widgetType": "TIMESERIES_LINE_CHART",
+      "widgetId": "virtual_interfaces_receive_packets_trending",
+      "id": "adaptive_line_chart_count",
+      "name": "Receive Packets Trending",
+      "type": "CHART",
+      "contexts": {
+        "reportId": "com.cfx.device.qos.trend.VIRTUAL_INTERFACES_RECEIVE_PACKETS_TRENDING"
+      }
+    },
+    {
+      "widgetType": "TIMESERIES_LINE_CHART",
+      "widgetId": "virtual_interfaces_transmit_packets_trending",
+      "id": "adaptive_line_chart_count",
+      "name": "Transmit Packets Trending",
+      "type": "CHART",
+      "contexts": {
+        "reportId": "com.cfx.device.qos.trend.VIRTUAL_INTERFACES_TRANSMIT_PACKETS_TRENDING"
+      }
+    }
+  ]
+}

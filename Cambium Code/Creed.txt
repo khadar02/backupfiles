@@ -1,0 +1,12 @@
+10.0.252.123
+
+3c3ba245-5f04-47d5-83ae-a00e148f78d5	assetid
+eca0a647-dc14-4dd2-b175-2a204ca45b67	cred id
+c8cdd450-ec63-11e8-8108-8dd20de7fcfa	env id
+
+
+10.5.1.138
+
+ee5f1d0d-2d47-4c29-a8d8-2b203c6c20b6	assetid
+eca0a647-dc14-4dd2-b175-2a204ca45b67 	credid
+c8cdd450-ec63-11e8-8108-8dd20de7fcfa	envid

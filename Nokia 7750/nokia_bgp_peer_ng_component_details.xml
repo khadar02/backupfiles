@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfx:Report identifier="nokia_bgp_peer_ng_component_details" xmlns:cfx="http://www.cloudfabrix.com/schemas/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cloudfabrix.com/schemas/1.0 ../../xsd/cfx-report.xsd ">
+  <cfx:ReportProperties>
+    <cfx:Title>BGP PEER NG</cfx:Title>
+    <cfx:Description></cfx:Description>
+    <cfx:Type>Tabular</cfx:Type>
+    <cfx:Version>1.0.1</cfx:Version>
+    <cfx:HelpId>nokia_bgp_peer_ng_component_details</cfx:HelpId>
+    <cfx:CriteriaSupported>true</cfx:CriteriaSupported>
+  </cfx:ReportProperties>
+  <cfx:ModelProperties>
+    <cfx:ActionHandlerList>
+      <cfx:ActionHandler>
+        <cfx:className>com.cfx.server.handlers.actions.BaseReportActionHandler</cfx:className>
+        <cfx:ServiceName>advanced-reporting-service</cfx:ServiceName>
+        <cfx:Operation>GET</cfx:Operation>
+        <cfx:MethodName>getDataByCriteria</cfx:MethodName>
+        <cfx:MethodArgList>
+          <cfx:MethodArg>reportId</cfx:MethodArg>
+          <cfx:MethodArg>contextInfo</cfx:MethodArg>
+          <cfx:SearchCriteria>
+            <cfx:condition-list>
+              <cfx:condition identifier="assetId">
+                <cfx:attribute>assetId</cfx:attribute>
+                <cfx:ValueKey>id</cfx:ValueKey>
+              </cfx:condition>
+              <cfx:condition identifier="type">
+                <cfx:attribute>type</cfx:attribute>
+                <cfx:values>
+                  <cfx:value>bgp-peer-ng</cfx:value>
+                </cfx:values>
+              </cfx:condition>
+            </cfx:condition-list>
+            <cfx:order-by>
+              <cfx:order-by-element>
+                <cfx:attribute>label</cfx:attribute>
+                <cfx:order>asc</cfx:order>
+              </cfx:order-by-element>
+            </cfx:order-by>
+            <cfx:max-results>20</cfx:max-results>
+          </cfx:SearchCriteria>
+        </cfx:MethodArgList>
+        <cfx:parseResponse>false</cfx:parseResponse>
+      </cfx:ActionHandler>
+    </cfx:ActionHandlerList>
+  </cfx:ModelProperties>
+  <cfx:ColumnList>
+    <cfx:Column identifier="ComponentInfo.alarm-severity">
+      <cfx:Title></cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:HtmlElement>
+        <cfx:Name>values</cfx:Name>
+        <cfx:HtmlAttribute>
+          <cfx:Name>style</cfx:Name>
+          <cfx:HtmlAttributeProperty>
+            <cfx:HtmlStyleMap>
+              <cfx:FormatKeyColumn>ComponentInfo.alarm-severity</cfx:FormatKeyColumn>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>CRITICAL</cfx:FormatKey>
+                <cfx:FormatVal><![CDATA[<img src="assets/img/icons/alarmIcons/critical.png" width="20" height="20">]]></cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>MAJOR</cfx:FormatKey>
+                <cfx:FormatVal><![CDATA[<img src="assets/img/icons/alarmIcons/major.png" width="20" height="20">]]></cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>MINOR</cfx:FormatKey>
+                <cfx:FormatVal><![CDATA[<img src="assets/img/icons/alarmIcons/minor.png" width="20" height="20">]]></cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>WARNING</cfx:FormatKey>
+                <cfx:FormatVal><![CDATA[<img src="assets/img/icons/alarmIcons/warning.png" width="20" height="20">]]></cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>CLEAR</cfx:FormatKey>
+                <cfx:FormatVal><![CDATA[<img src="assets/img/icons/alarmIcons/clear.png" width="20" height="20">]]></cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>INFORMATION</cfx:FormatKey>
+                <cfx:FormatVal><![CDATA[<img src="assets/img/icons/alarmIcons/information.png" width="20" height="20">]]></cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>NOTIFICATION</cfx:FormatKey>
+                <cfx:FormatVal><![CDATA[<img src="assets/img/icons/alarmIcons/notification.png" width="20" height="20">]]></cfx:FormatVal>
+              </cfx:FormatDetails>
+            </cfx:HtmlStyleMap>
+          </cfx:HtmlAttributeProperty>
+        </cfx:HtmlAttribute>
+      </cfx:HtmlElement>
+      <cfx:Filterable>false</cfx:Filterable>
+    </cfx:Column>
+    <cfx:Column identifier="id">
+      <cfx:Title>id</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:Visible>false</cfx:Visible>
+      <cfx:Hidden>true</cfx:Hidden>
+      <cfx:Key>true</cfx:Key>
+    </cfx:Column>
+    <cfx:Column identifier="assetId">
+      <cfx:Title>id</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:Visible>false</cfx:Visible>
+      <cfx:Key>true</cfx:Key>
+      <cfx:Hidden>true</cfx:Hidden>
+    </cfx:Column>
+	
+	<cfx:Column identifier="label">
+      <cfx:Title>Name</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+	
+    <cfx:Column identifier="ComponentInfo.customer-label">
+      <cfx:Title>Customer Name</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:Visible>true</cfx:Visible>
+    </cfx:Column>
+    <cfx:Column identifier="ComponentInfo.index">
+      <cfx:Title>Index</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+    <cfx:Column identifier="ComponentInfo.peer-type">
+      <cfx:Title>Type</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+    <cfx:Column identifier="ComponentInfo.local-as4-byte">
+      <cfx:Title>Local AS4 Byte</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+	<cfx:Column identifier="ComponentInfo.peer-as4-byte">
+      <cfx:Title>Peer AS4 Byte</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+    <cfx:Column identifier="ComponentInfo.connection-string">
+      <cfx:Title>Connection State</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+	
+	<cfx:Column identifier="componentHash">
+      <cfx:Title>hash</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:Visible>false</cfx:Visible>
+      <cfx:Key>true</cfx:Key>
+      <cfx:Hidden>true</cfx:Hidden>
+    </cfx:Column>
+    <cfx:Column identifier="component-type">
+      <cfx:Title>type</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:Visible>false</cfx:Visible>
+      <cfx:Key>true</cfx:Key>
+      <cfx:Hidden>true</cfx:Hidden>
+    </cfx:Column>
+    
+    <!-- <cfx:Column identifier="Origin"> <cfx:Title>Origin</cfx:Title> <cfx:Type>String</cfx:Type> <cfx:Visible>false</cfx:Visible> </cfx:Column> -->
+    <cfx:Column identifier="ComponentInfo.alarm-severity">
+      <cfx:Title>Severity</cfx:Title>
+      <cfx:Key>true</cfx:Key>
+      <cfx:Type>Enum</cfx:Type>
+      <cfx:Formatter>enum</cfx:Formatter>
+      <cfx:Visible>true</cfx:Visible>
+      <cfx:HtmlElement>
+        <cfx:Name>span</cfx:Name>
+        <cfx:HtmlAttribute>
+          <cfx:Name>style</cfx:Name>
+          <cfx:HtmlAttributeProperty>
+            <cfx:CFXHtmlColorMap>
+              <cfx:FormatKeyColumn>ComponentInfo.alarm-severity</cfx:FormatKeyColumn>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Critical</cfx:FormatKey>
+                <cfx:FormatVal>#D32F2F</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Clear</cfx:FormatKey>
+                <cfx:FormatVal>Green</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Information</cfx:FormatKey>
+                <cfx:FormatVal>#A6E2E2</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Notification</cfx:FormatKey>
+                <cfx:FormatVal>#078ACC</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Major</cfx:FormatKey>
+                <cfx:FormatVal>#FF5722</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Minor</cfx:FormatKey>
+                <cfx:FormatVal>#FF9800</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Warning</cfx:FormatKey>
+                <cfx:FormatVal>#FFC107</cfx:FormatVal>
+              </cfx:FormatDetails>
+            </cfx:CFXHtmlColorMap>
+          </cfx:HtmlAttributeProperty>
+        </cfx:HtmlAttribute>
+      </cfx:HtmlElement>
+      <cfx:ListOfValues>
+        <cfx:StaticData>
+          <cfx:LOVList>
+            <cfx:LOV identifier="CRITICAL">
+              <cfx:DisplayName>Critical</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="CLEAR">
+              <cfx:DisplayName>Clear</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="INFORMATION">
+              <cfx:DisplayName>Information</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="MAJOR">
+              <cfx:DisplayName>Major</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="MINOR">
+              <cfx:DisplayName>Minor</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="WARNING">
+              <cfx:DisplayName>Warning</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="NOTIFICATION">
+              <cfx:DisplayName>Notification</cfx:DisplayName>
+            </cfx:LOV>
+          </cfx:LOVList>
+        </cfx:StaticData>
+      </cfx:ListOfValues>
+    </cfx:Column>
+    <cfx:Column identifier="ComponentInfo.alarm-count">
+      <cfx:Title>Alarm Count</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:Visible>false</cfx:Visible>
+    </cfx:Column>
+    <cfx:Column identifier="ComponentInfo.ipAddress">
+      <cfx:Title>IP Address</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:Filterable>false</cfx:Filterable>
+      <cfx:Sortable>false</cfx:Sortable>
+      <cfx:Visible>false</cfx:Visible>
+    </cfx:Column>
+    <cfx:Column identifier="contextInfo">
+      <cfx:Title>Context Info</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:Key>true</cfx:Key>
+      <cfx:Hidden>true</cfx:Hidden>
+    </cfx:Column>
+    
+  </cfx:ColumnList>
+  <cfx:ActionGroupList>
+	<cfx:ActionGroup identifier="DetailsGroup">
+      <cfx:Action identifier="view_details_region">
+        <cfx:Title>View Details</cfx:Title>
+        <cfx:Icon></cfx:Icon>
+        <cfx:SelectionType>Single</cfx:SelectionType>
+        <cfx:Enabled>Always</cfx:Enabled>
+        <cfx:Type>GoToDashboard</cfx:Type>
+        <cfx:DashboardName>device_bgp_peer_ng_component_dashboard</cfx:DashboardName>
+        <cfx:DrillDownLinkField>label</cfx:DrillDownLinkField>
+      </cfx:Action>
+    </cfx:ActionGroup>
+  </cfx:ActionGroupList>
+</cfx:Report>

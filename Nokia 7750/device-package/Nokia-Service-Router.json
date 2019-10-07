@@ -1,0 +1,140 @@
+{
+  "device-key": [
+    {
+      "vendor": "Nokia",
+      "model": "*",
+      "osType": "SR OS",
+      "version": "*",
+      "family": "Router"
+    }
+  ],
+  "feature-entities": {
+    "Chassis": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "ChassisTable",
+          "queryType": "TABLE",
+          "useSelectiveIndex": false,
+          "fields": [
+            {
+              "type": "int32",
+              "description": " The unique value which identifies this chassis in the system. The first release of the product only supports a single chassis in the system.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.3.1.1",
+              "name": "tmnxChassisIndex"
+            },
+            {
+              "type": "string",
+              "description": "The administrative name assigned this chassis.  Setting tmnxChassisName to the empty string, ''H, resets tmnxChassisName to the TiMOS default value.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.3.1.3",
+              "name": "tmnxChassisName"
+            },
+            {
+              "type": "string",
+              "description": "The type of chassis used in this Alcatel 7x50 system.  The value of tmnxChassisType is the tmnxChassisTypeIndex for the entry in the tmnxChassisTypeTable that represents the Alcatel 7x50 SR series chassis model for this system.  Chassis types are distinguished by their backplane type.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.3.1.4",
+              "name": "tmnxChassisType"
+            },
+            {
+              "type": "int32",
+              "description": " The total number of power supplies installed in this chassis.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.3.1.9",
+              "name": "tmnxChassisNumPwrSupplies"
+            },
+            {
+              "type": "int32",
+              "description": " The total number of fan trays installed in this chassis.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.3.1.10",
+              "name": "tmnxChassisNumFanTrays"
+            },
+            {
+              "type": "int32",
+              "description": " The total number of fans installed in this chassis.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.3.1.11",
+              "name": "tmnxChassisNumFans"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Chassis.js"
+      }
+    },
+	"CPUInventory": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "CPU",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": "The value of sgiCpuUsage indicates the current CPU utilization for the system.",
+              "name": "sgiCpuUsage",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.1.0",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Cpu.js"
+      }
+    },
+	"CPUMonitoring": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "CPU",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": "The value of sgiCpuUsage indicates the current CPU utilization for the system.",
+              "name": "sgiCpuUsage",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.1.0",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Cpu.js"
+      }
+    },
+	"ProductInformation": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "ProductInformation",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": "The value of sgiSwMajorVersion indicates the major version number of the software running on the active CPM card.",
+              "name": "sgiSwMajorVersion",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.5.0",
+              "type": "int32"
+            },
+			{
+              "description": "The value of sgiSwMinorVersion indicates the minor version number of the software running on the active CPM card.",
+              "name": "sgiSwMinorVersion",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.6.0",
+              "type": "int32"
+            },
+			{
+              "description": "The value of sgiSwVersionModifier indicates additional information about the version of software running on the active CPM card.",
+              "name": "sgiSwVersionModifier",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.7.0",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Product-Information.js"
+      }
+    }
+  }
+}

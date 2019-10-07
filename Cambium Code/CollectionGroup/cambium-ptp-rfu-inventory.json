@@ -1,0 +1,56 @@
+{
+  "name": "io.macaw.feature.cambium.ptp.rfu.inventory",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "RfuStatus",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+    "is-component": true,
+    "component-type": "device-rfu",
+    "component-label-field": "component"
+  },
+  "data-handlers": [
+    {
+      "id": "cambium-rfu-inventory",
+      "post-collection-type": "data-persistence",
+      "component-definition": {
+        "component-info-fields": [
+          {
+			"index": "index",
+			"RFUTxMaxFreq": "rfu-tx-max-freq",
+			"RFUTxMinFreq": "rfu-tx-min-freq",
+			"RFURxMaxFreq": "rfu-rx-max-freq",
+			"RFURxMinFreq": "rfu-rx-min-freq",
+			"RfuMinBW": "rfu-min-bandwidth",
+			"RfuMaxBW": "rfu-max-bandwidth",
+			"RfuTxLevel": "rfu-tx-level"
+          }
+        ],
+        "fqn-fields": [
+          {
+            "component": "physicalEntity"
+          }
+        ]
+      }
+    }
+  ]
+}
+

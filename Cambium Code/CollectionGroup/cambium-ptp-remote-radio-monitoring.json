@@ -1,0 +1,76 @@
+{
+  "name": "io.macaw.feature.cambium.ptp.remote.radio.monitoring",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "RemoteRadioStatus",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+	"is-component": true,
+    "component-type": "device-remoteradio",
+    "component-label-field": "component",
+    "fqn-fields": [
+          {
+            "component": "physicalEntity"
+          }
+	]
+  },
+  "data-handlers": [
+    {
+      "id": "io.macaw.feature.cambium.ptp.remote.radio.monitoring.metric.max.rx.level",
+      "post-collection-type": "embedded-script",
+      "expression": "function io_macaw_feature_cambium_ptp_remote_radio_monitoring_metric_max_rx_level(data) {data.point.addField(\"type\", \"Receive\");var a= parseFloat(data.RemoteRxLevel);return new java.lang.Double(a);}",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "RemoteRxLevel": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "metricNameRRxL": "metricName"
+          }
+        ]
+      }
+    },
+	{
+      "id": "io.macaw.feature.cambium.ptp.remote.radio.monitoring.metric.remote.radio.status",
+      "post-collection-type": "embedded-script",
+      "expression": "function io_macaw_feature_cambium_ptp_remote_radio_monitoring_metric_remote_radio_status(data) {data.point.addField(\"type\", \"Communication Status\");var a= parseFloat(data.RemoteRadioCommunication);return new java.lang.Double(a);}",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "RemoteRadioCommunication": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "metricNameRRCS": "metricName"
+          }
+        ]
+      }
+    }
+	
+  ]
+}

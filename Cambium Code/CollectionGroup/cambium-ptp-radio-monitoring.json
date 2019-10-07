@@ -1,0 +1,51 @@
+{
+  "name": "io.macaw.feature.cambium.ptp.radio.monitoring",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "RadioStatus",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+	"is-component": false
+    
+  },
+  "data-handlers": [
+    {
+      "id": "io.macaw.feature.cambium.ptp.radio.monitoring.metric.status.mse",
+      "post-collection-type": "embedded-script",
+      "expression": "function io_macaw_feature_cambium_ptp_radio_monitoring_metric_status_mse(data) {data.point.addField(\"type\", \"Radio MSError\");var a= parseFloat(data.RadioMSE);return new java.lang.Double(a);}",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "RadioMSE": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "metricNameMSE": "metricName"
+          }
+        ]
+      }
+    }
+	
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "io.macaw.feature.cambium.ptp.temperature.monitoring",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "Temperature",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+    "is-component": false
+  },
+  "data-handlers": [
+    {
+      "id": "io.macaw.feature.cambium.ptp.temperature.monitoring.metric.temperature",
+      "post-collection-type": "embedded-script",
+      "expression": "function io_macaw_feature_cambium_ptp_temperature_monitoring_metric_temperature(data) {data.point.addField(\"type\", \"Temperature\");var a= parseFloat(data.Temperature);return new java.lang.Double(a);}",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "Temperature": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "metricNameT": "metricName"
+          }
+        ]
+      }
+    }
+  ]
+}

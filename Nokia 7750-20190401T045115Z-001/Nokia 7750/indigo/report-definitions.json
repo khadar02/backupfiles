@@ -1,0 +1,4189 @@
+{
+  "context": {
+    "com.cfx.monsanto.group": "context associated with a group (node) in the tree.  The right side reports will be attached to this context",
+    "com.cfx.monsanto.group.direct": "context associated with a group (node) in the tree.  The right side reports will be attached to this context",
+    "com.cfx.monsanto.device.inventory": "context associated to a device node in the tree.  The right side device specific reports will be on this context.",
+    "com.cfx.monsanto.wan-interfaces.inventory": "context associated to a wan-interface in the tree.  The right side device specific reports for wan-ifs will be on this context.",
+    "com.cfx.monsanto.dashboard.regional": "region specific dashboard reports will be on this context."
+  },
+  "reports": [
+    {
+      "name": "com.cfx.group.inventory.tree",
+      "report-generator-type": "com.cfx.report.generator.type.tree"
+    },
+    {
+      "name": "com.cfx.customer.summary.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.AllCustomerMembersCountSummary",
+      "contextInfo": {
+        "contextType": "customer-account",
+        "contextLabel": "Customer Summary: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "id"
+          },
+          {
+            "id": "name",
+            "key": "name"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.by.customer.count",
+      "impl-class": "com.cfx.advanced.reporting.handler.DevicesByCustomerPieData",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_customer",
+        "contextLabel": "Devices By Customer: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "id"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.alarms.count",
+      "impl-class": "com.cfx.advanced.reporting.handler.DeviceAlarmsCountPieData",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_customer",
+        "contextLabel": "Devices By Customer: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "id"
+          },
+          {
+            "id": "name",
+            "key": "name"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.by.type.count",
+      "impl-class": "com.cfx.advanced.reporting.handler.DeviceSummaryByTypePieData",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "DEVICES_BY_TYPE_SUMMARY",
+        "contextLabel": "Devices By Type: {name}",
+        "params": [
+          {
+            "name": "customerId",
+            "key": "id"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "family",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.type.for.customer",
+      "impl-class": "com.cfx.advanced.reporting.handler.DeviceSummaryByTypePieData",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_customer",
+        "contextLabel": "Devices By Type: {name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "customerId",
+            "key": "customerId"
+          },
+          {
+            "id": "customerId",
+            "key": "id"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "family",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.type.for.group",
+      "impl-class": "com.cfx.advanced.reporting.handler.DeviceSummaryByTypePieData",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_group",
+        "contextLabel": "Devices By Type: {name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "family",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.alarm.severity.count.report",
+      "impl-class": "com.cfx.advanced.reporting.handler.AlarmsBySeverityReport",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "alarms_by_severity",
+        "contextLabel": "Alarms By Type: {name}",
+        "params": [
+          {
+            "id": "assetId",
+            "key": "id"
+          },
+          {
+            "id": "customerId",
+            "key": "customerId"
+          },
+          {
+            "id": "report_origin",
+            "key": "report_origin"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "severity",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.system.alarm.severity",
+      "impl-class": "com.cfx.advanced.reporting.handler.SystemAlarmsbySeverityPieData",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "system_alarms_by_severity",
+        "contextLabel": "Systems Alarms By Severity: {name}",
+        "params": [
+          {
+            "id": "sourceMechanism",
+            "key": "sourceMechanism",
+            "value": "SYSTEM"
+          },
+          {
+            "id": "report_origin",
+            "key": "report_origin"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "severity",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.alarm.severity.for.customer",
+      "impl-class": "com.cfx.advanced.reporting.handler.MembersCountFromTagTreeForGroupAlarm",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "alarms_by_severity",
+        "contextLabel": "Alarms By Type: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "id"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "severity",
+              "key": "name"
+            },
+            {
+              "id": "customerId",
+              "key": "customerId"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.ticket.priority.for.customer",
+      "impl-class": "com.cfx.advanced.reporting.handler.TicketPriorityForCustomer",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "tickets_by_priority",
+        "contextLabel": "Active tickets by Priority: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "id"
+          },
+          {
+            "id": "customerName",
+            "key": "name"
+          },
+          {
+            "id": "customerId",
+            "key": "customerId"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "priority",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.ticket.state.for.customer",
+      "impl-class": "com.cfx.advanced.reporting.handler.TicketStateForCustomer",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "tickets_by_state",
+        "contextLabel": "Active tickets by Status: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "id"
+          },
+          {
+            "id": "customerName",
+            "key": "name"
+          },
+          {
+            "id": "customerId",
+            "key": "customerId"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "state",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.alarm.severity.for.group",
+      "impl-class": "com.cfx.advanced.reporting.handler.MembersCountFromTagTreeForGroupAlarm",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "alarms_by_severity_for_group",
+        "contextLabel": "Alarms By Type: {name}",
+        "params": [
+          {
+            "id": "assetId",
+            "key": "id"
+          },
+          {
+            "id": "customerId",
+            "key": "customerId"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "severity",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.alarm.severity.device.count.report",
+      "impl-class": "com.cfx.advanced.reporting.handler.MembersCountFromTagTree",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_alarm_severity",
+        "contextLabel": "Devices By Alarm Severity: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "alarm-severity",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.customer.alarm.severity",
+      "impl-class": "com.cfx.advanced.reporting.handler.MembersCountFromTagTree",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_customer",
+        "contextLabel": "Devices By Alarm Severity: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "customerId"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "alarm-severity",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.group.alarm.severity",
+      "impl-class": "com.cfx.advanced.reporting.handler.MembersCountFromTagTree",
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_group",
+        "contextLabel": "Devices By Alarm Severity: {name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "alarm-severity",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.management.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsFromTagTreeByAttribute",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "DEVICES_BY_TYPE_SUMMARY",
+        "contextLabel": "Devices By Management Status: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "management-status",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.interface.count",
+      "impl-class": "com.cfx.advanced.reporting.handler.InterfacesCountReport",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "interface_pie_chart_dashboard",
+        "contextLabel": "Ports By Status: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.ifOperStatus",
+              "key": "operstatus-id"
+            },
+            {
+              "id": "ComponentInfo.is-physical-entity",
+              "key": "is-physical-entity"
+            },
+            {
+              "id": "ComponentInfo.customer-id",
+              "key": "customer-id"
+            },
+            {
+              "id": "ComponentInfo.ifTypeLabel",
+              "key": "iftype-label"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.interface.count.type",
+      "impl-class": "com.cfx.advanced.reporting.handler.InterfacesCountReport",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "interface_pie_chart_dashboard",
+        "contextLabel": "Ports By Type: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.ifOperStatus",
+              "key": "operstatus-id"
+            },
+            {
+              "id": "ComponentInfo.is-physical-entity",
+              "key": "is-physical-entity"
+            },
+            {
+              "id": "ComponentInfo.customer-id",
+              "key": "customer-id"
+            },
+            {
+              "id": "ComponentInfo.ifTypeLabel",
+              "key": "iftype-label"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.interface.entities.count",
+      "impl-class": "com.cfx.advanced.reporting.handler.InterfacesCountReport",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "interface_entity_type_dashboard",
+        "contextLabel": "Entities By Type: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "type",
+              "key": "name"
+            },
+            {
+              "id": "ComponentInfo.customer-id",
+              "key": "customer-id"
+            },
+            {
+              "id": "ComponentInfo.is-physical-entity",
+              "key": "is-physical-entity"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.reachability.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsFromTagTreeByAttribute",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "DEVICES_BY_TYPE_SUMMARY",
+        "contextLabel": "Devices By Reachability Status: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "reachability-status",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.operational.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsFromTagTreeByAttribute",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "DEVICES_BY_TYPE_SUMMARY",
+        "contextLabel": "Devices By Operational Status: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "operational-status",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.customer.management.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsFromTagTreeByAttribute",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_customer",
+        "contextLabel": "Devices By Status: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "customerId"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "management-status",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.customer.reachability.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsFromTagTreeByAttribute",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_customer",
+        "contextLabel": "Devices By Reachability Status: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "customerId"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "reachability-status",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.customer.operational.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsFromTagTreeByAttribute",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_customer",
+        "contextLabel": "Devices By Operational Status: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "customerId"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "operational-status",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.group.management.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsFromTagTreeByAttribute",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_group",
+        "contextLabel": "Devices By Management Status: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "id"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "management-status",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.by.group.reachability.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsFromTagTreeByAttribute",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "devices_by_group",
+        "contextLabel": "Devices By Reachability Status: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "id"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "reachability-status",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.group.container.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.MembersCountFromTagTreeSummary"
+    },
+    {
+      "name": "com.cfx.users.summary",
+      "impl-class": "com.cfx.advanced.reporting.handler.UsersSummaryHandler"
+    },
+    {
+      "name": "com.cfx.multi.msp.users.summary",
+      "impl-class": "com.cfx.advanced.reporting.handler.MultiMSPUsersSummaryHandler"
+    },
+    {
+      "name": "com.cfx.unallocated.users.summary",
+      "impl-class": "com.cfx.advanced.reporting.handler.UnallocatedUsersSummaryHandler"
+    },
+    {
+      "name": "com.cfx.devices.by.criteria",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsFromTagTree",
+      "contextInfo": {
+        "contextType": "device_dashboard",
+        "contextLabel": "Device Details: {label}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "id"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.devices.by.customer",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetByCustomer",
+      "contextInfo": {
+        "contextType": "device_dashboard",
+        "contextLabel": "Device Details: {label}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "id"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.devices.by.type",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "id"
+          },
+          {
+            "name": "assetType"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "device_dashboard",
+        "contextLabel": "Device Details: {label}",
+        "params": [
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "id"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.cpg.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "cpg_dashboard",
+        "contextLabel": "Common Provisioning Group: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.port.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "storage_port_dashboard",
+        "contextLabel": "Storage Port: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.cpg.vlun.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.CPGVluns",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "vlun_dashboard",
+        "contextLabel": "vLUN: {label}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.storagecontroller.port.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.StorageControllerPorts",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "vlun_dashboard",
+        "contextLabel": "vLUN: {label}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.port.vlun.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.PortVluns",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "vlun_dashboard",
+        "contextLabel": "vLUN: {label}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.storage.controller.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "storage_controller_dashboard",
+        "contextLabel": "Storage Controller: {label}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.storage.drive.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "storage_drive_dashboard",
+        "contextLabel": "Storage Drive: {label}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.storage.volume.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "storage_volume_dashboard",
+        "contextLabel": "Storage Volume: {label}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.interface.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "interface_dashboard",
+        "contextLabel": "Interfaces: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "total",
+            "key": "ComponentInfo.total"
+          },
+          {
+            "id": "endpoint",
+            "key": "ComponentInfo.endpoint"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.interface.details.host.windows",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "interface_dashboard_host_windows",
+        "contextLabel": "Interfaces: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "total",
+            "key": "ComponentInfo.total"
+          },
+          {
+            "id": "endpoint",
+            "key": "ComponentInfo.endpoint"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.netapp.port.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "netapp_port_component_dashboard",
+        "contextLabel": "Port: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "total",
+            "key": "ComponentInfo.total"
+          },
+          {
+            "id": "endpoint",
+            "key": "ComponentInfo.endpoint"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.ipsla.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "ipsla_dashboard",
+        "contextLabel": "IP SLA Entry: {ComponentInfo.index}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "ComponentInfo.id",
+            "key": "ComponentInfo.id"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.application.endpoint.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "endpoint_component_dashboard",
+        "contextLabel": "End Points: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "total",
+            "key": "ComponentInfo.total"
+          },
+          {
+            "id": "endpoint",
+            "key": "ComponentInfo.endpoint"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.temperature.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "temperature_dashboard",
+        "contextLabel": "Sensor: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.node.component.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "netapp_node_component_dashboard",
+        "contextLabel": "Node: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.host.service.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "host_service_dashboard",
+        "contextLabel": "Host Services: {ComponentInfo.serviceCaption}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.host.process.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "host_process_dashboard",
+        "contextLabel": "Host Processes: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.host.service.win.snmp.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "host_service_dashboard_win_snmp",
+        "contextLabel": "Host Services: {ComponentInfo.serviceCaption}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.disk.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "device_disk_component_dashboard",
+        "contextLabel": "Disk: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "total",
+            "key": "ComponentInfo.total"
+          },
+          {
+            "id": "endpoint",
+            "key": "ComponentInfo.endpoint"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.block.luns",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_block_lun_dashboard",
+        "contextLabel": "LUN: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "ComponentInfo.id",
+            "key": "ComponentInfo.id"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.storage.pools",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_block_pool_dashboard",
+        "contextLabel": "Storage Pool: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "ComponentInfo.name",
+            "key": "ComponentInfo.name"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.block.sps",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_block_sp_dashboard",
+        "contextLabel": "Storage Processor: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "ComponentInfo.name",
+            "key": "ComponentInfo.name"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.block.raid.groups",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_block_raid_group_dashboard",
+        "contextLabel": "Raid Group: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "ComponentInfo.name",
+            "key": "ComponentInfo.name"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.block.sp.ports",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_block_sp_port_dashboard",
+        "contextLabel": "Storage Processor Port: {ComponentInfo.port-id}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "ComponentInfo.id",
+            "key": "ComponentInfo.id"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.block.sgs",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.block.disks",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_block_disk_dashboard",
+        "contextLabel": "Disk: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "ComponentInfo.name",
+            "key": "ComponentInfo.name"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.file.system",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_file_system_dashboard",
+        "contextLabel": "File System: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.file.volume",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_file_volume_dashboard",
+        "contextLabel": "File Volume: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.file.storagepool",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_file_storagepool_dashboard",
+        "contextLabel": "Storage Pool: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.file.movers",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_file_mover_dashboard",
+        "contextLabel": "File Mover: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.emc.file.mover.ports",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "emc_file_mover_port_dashboard",
+        "contextLabel": "Mover Port: {ComponentInfo.name}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "ComponentInfo.id",
+            "key": "ComponentInfo.id"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.interfaces.by.operstatus.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteriaWithDeviceDetails",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "interface_dashboard",
+        "contextLabel": "Interfaces: {label}",
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.metrics.series",
+      "impl-class": "com.cfx.indigo.portal.reports.MetricsTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.metrics.summary",
+      "impl-class": "com.cfx.advanced.reporting.handler.MetricsSummaryReport"
+    },
+    {
+      "name": "com.cfx.device.interface.summary.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsById"
+    },
+    {
+      "name": "com.cfx.device.interface.alarm.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.SearchAlerts",
+      "sql": {
+        "parameters": [
+          {
+            "name": "componentId"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.alarms.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.SearchAlerts",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          },
+          {
+            "name": "customerId"
+          },
+          {
+            "name": "sourceMechanism"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "ticket_summary_dashboard",
+        "contextLabel": "{assetName}",
+        "params": [
+          {
+            "id": "id",
+            "key": "assetId"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.uptime.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.AssetsUptimeReport",
+      "sql": {
+        "parameters": [
+          {
+            "name": "customerId"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.tickets.priority.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.SearchTickets",
+      "sql": {
+        "parameters": [
+          {
+            "name": "customerId"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.alarms.for.group.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.SearchAlertsForGroup",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          },
+          {
+            "name": "severity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.alarms.for.wan.group.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.SearchAlertsForWanGroup",
+      "sql": {
+        "parameters": [
+          {
+            "name": "severity"
+          }
+        ]
+      }
+    },
+    {
+      "name": "QOS_INTERFACE_UTILIZATIONIN",
+      "reportType": "TOP_N_FACTORY_REPORT",
+      "context-type": "com.cfx.monsanto.device.top.interface.inbound.usage",
+      "report-generator-type": "com.cfx.report.generator.type.tabular",
+      "sql": {}
+    },
+    {
+      "name": "QOS_INTERFACE_UTILIZATIONOUT",
+      "reportType": "TOP_N_FACTORY_REPORT",
+      "context-type": "com.cfx.monsanto.device.top.interface.outbound.usage",
+      "report-generator-type": "com.cfx.report.generator.type.tabular",
+      "sql": {}
+    },
+    {
+      "name": "QOS_INTERFACE_PACKET_ERRORS",
+      "reportType": "TOP_N_FACTORY_REPORT",
+      "context-type": "com.cfx.monsanto.device.top.interface.outbound.usage",
+      "report-generator-type": "com.cfx.report.generator.type.tabular",
+      "sql": {}
+    },
+    {
+      "name": "QOS_INTERFACE_PACKET_DISCARDS",
+      "reportType": "TOP_N_FACTORY_REPORT",
+      "context-type": "com.cfx.monsanto.device.top.interface.outbound.usage",
+      "report-generator-type": "com.cfx.report.generator.type.tabular",
+      "sql": {}
+    },
+    {
+      "name": "QOS_CPU_UTILIZATION",
+      "reportType": "TOP_N_FACTORY_REPORT",
+      "context-type": "com.cfx.monsanto.device.top.cpu.usage",
+      "report-generator-type": "com.cfx.report.generator.type.tabular",
+      "sql": {}
+    },
+    {
+      "name": "QOS_PHYSICALMEMORY_UTILIZATION",
+      "reportType": "TOP_N_FACTORY_REPORT",
+      "context-type": "com.cfx.monsanto.device.top.memory.usage",
+      "report-generator-type": "com.cfx.report.generator.type.tabular",
+      "sql": {}
+    },
+    {
+      "name": "QOS_RAISED_ALERTS",
+      "reportType": "TOP_N_FACTORY_REPORT",
+      "context-type": "com.cfx.region.n.top.device.health.alerts.raised",
+      "report-generator-type": "com.cfx.report.generator.type.tabular",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_CPG_Availability",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_CPG_Utilization",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_STORAGE_DRIVE_AVAILABILITY",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_STORAGE_VOLUME_IOPS",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_STORAGE_VOLUME_BANDWIDTH",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_STORAGE_VOLUME_LATENCY",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_STORAGE_VOLUME_UTILIZATION",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_PORT_STATE",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_VOULME_STATE",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_STORAGE_IOPS",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_STORAGE_LATENCY",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_STORAGE_BANDWIDTH",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_STORAGE_UTILIZATION",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_CPU_UTILIZATION",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_CPU_UTILIZATION_VM_HYPERVISOR",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_PHYSICALMEMORY_UTILIZATION",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_CPU_UTILIZATION_HOST",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_MEMORY_UTILIZATION_HOST",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_SERVICE_AVAILABILITY_HOST",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DISK_UTILIZATION_HOST",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_SERVICE_NTP_DRIFT",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_TOP_PROCESSES",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_TOP_LOAD_AVERAGE",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_TOP_SWAP",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_NFS_CLIENT_ACTIVITY_DIFFERENCE",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_NFS_CLIENT_ACTIVITY",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "QOS_HOST_TOP_PROCESS_CPU_UTILIZATION",
+      "reportType": "TOP_N_FACTORY_REPORT",
+      "context-type": "com.cfx.monsanto.device.top.cpu.usage",
+      "report-generator-type": "com.cfx.report.generator.type.tabular",
+      "sql": {}
+    },
+    {
+      "name": "QOS_HOST_TOP_PROCESS_MEMORY_UTILIZATION",
+      "reportType": "TOP_N_FACTORY_REPORT",
+      "context-type": "com.cfx.monsanto.device.top.memory.usage",
+      "report-generator-type": "com.cfx.report.generator.type.tabular",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_AVAILABILITY_AVAILABILITY",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_REACHABILITY_REACHABILITY",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_UTILIZATIONIN",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_IN_OCTETS_DELTA",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "data-model": {
+        "params": [
+          {
+            "id": "base-units",
+            "value": "bytes"
+          },
+          {
+            "id": "candidate-percentile",
+            "value": "50"
+          },
+          {
+            "id": "precedence",
+            "value": "gb,mb,kb,bytes"
+          },
+          {
+            "id": "bytes.conversion-factor",
+            "value": "1"
+          },
+          {
+            "id": "kb.conversion-factor",
+            "value": "1024"
+          },
+          {
+            "id": "mb.conversion-factor",
+            "value": "1048576"
+          },
+          {
+            "id": "gb.conversion-factor",
+            "value": "1073741824"
+          },
+          {
+            "id": "bytes.label",
+            "value": "Bytes/Seconds"
+          },
+          {
+            "id": "kb.label",
+            "value": "KB/Seconds"
+          },
+          {
+            "id": "mb.label",
+            "value": "MB/Seconds"
+          },
+          {
+            "id": "gb.label",
+            "value": "GB/Seconds"
+          }
+        ]
+      },
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_OUT_OCTETS_DELTA",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "data-model": {
+        "params": [
+          {
+            "id": "base-units",
+            "value": "bytes"
+          },
+          {
+            "id": "candidate-percentile",
+            "value": "50"
+          },
+          {
+            "id": "precedence",
+            "value": "gb,mb,kb,bytes"
+          },
+          {
+            "id": "bytes.conversion-factor",
+            "value": "1"
+          },
+          {
+            "id": "kb.conversion-factor",
+            "value": "1024"
+          },
+          {
+            "id": "mb.conversion-factor",
+            "value": "1048576"
+          },
+          {
+            "id": "gb.conversion-factor",
+            "value": "1073741824"
+          },
+          {
+            "id": "bytes.label",
+            "value": "Bytes/Seconds"
+          },
+          {
+            "id": "kb.label",
+            "value": "KB/Seconds"
+          },
+          {
+            "id": "mb.label",
+            "value": "MB/Seconds"
+          },
+          {
+            "id": "gb.label",
+            "value": "GB/Seconds"
+          }
+        ]
+      },
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_UTILIZATIONOUT",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_TOTAL_ERRORS",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "contextInfo": {
+        "params": [
+          {
+            "id": "series.type",
+            "value": "multiple"
+          },
+          {
+            "id": "series.1.label.template",
+            "value": "%s(In)"
+          },
+          {
+            "id": "series.2.label.template",
+            "value": "%s(Out)"
+          }
+        ]
+      },
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_TOTAL_DROPS",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "contextInfo": {
+        "params": [
+          {
+            "id": "series.type",
+            "value": "multiple"
+          },
+          {
+            "id": "series.1.label.template",
+            "value": "%s(In)"
+          },
+          {
+            "id": "series.2.label.template",
+            "value": "%s(Out)"
+          }
+        ]
+      },
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_DROPSIN",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_DROPSOUT",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_OPERATIONALSTATUS",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_UTILIZATIONIN_VM_HYPERVISOR",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_UTILIZATIONOUT_VM_HYPERVISOR",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_USAGE_VM_HYPERVISOR",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_BITSOUT",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_BITSIN",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.UCS_SERVER_POWER_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.UCS_SERVER_IO_TEMP_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_SERVICE_AVAILABILITY",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_SERVICE_AVAILABILITY_SNMP",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_SERVICE_AVAILABILITY_LINUX_SNMP",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_FILE_SYSTEM_USAGE",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_FILE_MOVER_CPU_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_FILE_MOVER_MEMORY_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_FILE_MOVER_REACHABILITY",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_FILE_MOVER_PORT_STATUS",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_FILE_STORAGEPOOL_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_FILE_VOLUME_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_LUN_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_LUN_RESPONSE_TIME",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_LUN_TOTAL_THROUGHPUT",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_LUN_TOTAL_BANDWIDTH",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_DISK_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_DISK_RESPONSE_TIME",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_DISK_TOTAL_THROUGHPUT",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_DISK_TOTAL_BANDWIDTH",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_SP_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_SP_REACHABILITY",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_SP_RESPONSE_TIME",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_SP_TOTAL_THROUGHPUT",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_SP_TOTAL_BANDWIDTH",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_SP_PORT_STATUS",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_SP_PORT_TOTAL_THROUGHPUT",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_SP_PORT_TOTAL_BANDWIDTH",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_POOL_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_POOL_READ_HIT_RATIO",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_POOL_WRITE_HIT_RATIO",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.EMC_BLOCK_RAID_GROUP_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_SERVICE_CPU_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.HOST_SERVICE_MEMORY_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_IP_SLA_OPER_COMPLETION_MILLIS",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "device_dashboard",
+      "context-type": "device_dashboard",
+      "impl-class": "com.cfx.advanced.reporting.handler.DeviceDashboard"
+    },
+    {
+      "name": "com.cfx.device.qos.trend.MOTHERBOARD_INPUT_CURRENT",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.MOTHERBOARD_INPUT_VOLTAGE",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.MOTHERBOARD_CONSUMED_POWER",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.MOTHERBOARD_SENS_IO_TEMPERATURE",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.MOTHERBOARD_SENS_REAR_TEMPERATURE",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.MEMORY_UNIT_TEMPERATURE",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.PROCESSOR_UNIT_TEMPERATURE",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.PROCESSOR_UNIT_CURRENT",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_BYTES_RECEIVED",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_BYTES_TRANSFERED",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_NETWORK_IN_UTILIZATION_VM_HYPERVISOR",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_NETWORK_OUT_UTILIZATION_VM_HYPERVISOR",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DISK_READ_UTILIZATION_VM_HYPERVISOR",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DISK_WRITE_UTILIZATION_VM_HYPERVISOR",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_CUSTOMER_UNUSED_PHYSICAL_PORT_UTILIZATION",
+      "context-type": "customer-account",
+      "impl-class": "com.cfx.indigo.portal.reports.CustomerQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DISK_UTILIZATION",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DISK_INPUT_BYTES_DELTA",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DISK_OUTPUT_BYTES_DELTA",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_FAN_STATUS_MONITORING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_FAN_STATUS_MONITORING_PAN",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DEVICE_TEMPERATURE_STATUS_MONITORING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DEVICE_POWER_SUPPLY_STATUS_MONITORING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DEVICE_VOLTAGE_STATUS_MONITORING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.wan.interfaces.by.type",
+      "impl-class": "com.cfx.advanced.reporting.handler.WanInterfacesByType",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "wan_interfaces_filter",
+        "contextLabel": "Interfaces By Type: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "componentinfo.ifTypeLabel",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.wan.interfaces.by.management.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.WanInterfacesByManagementStatus",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "wan_interfaces_filter",
+        "contextLabel": "Interfaces By Management Status: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "componentinfo.management-status",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.wan.interfaces.by.operational.status",
+      "impl-class": "com.cfx.advanced.reporting.handler.WanInterfacesByOperationalStatus",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "wan_interfaces_filter",
+        "contextLabel": "Interfaces By Operational Status: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "componentinfo.ifOperStatusLabel",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.wan.interfaces.by.alarm.severity",
+      "impl-class": "com.cfx.advanced.reporting.handler.WanInterfacesByAlarmSeverity",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "wan_interfaces_filter",
+        "contextLabel": "Interfaces By Alarm Severity: {name}",
+        "params": [],
+        "filter-info": {
+          "params": [
+            {
+              "id": "componentinfo.alarm-severity",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.wan.interface.alarms.by.severity",
+      "impl-class": "com.cfx.advanced.reporting.handler.WanInterfaceAlarmsBySeverity",
+      "sql": {
+        "parameters": []
+      },
+      "data-model": {
+        "params": [
+          {
+            "id": "label",
+            "key": "name"
+          },
+          {
+            "id": "value",
+            "key": "count"
+          },
+          {
+            "id": "color",
+            "key": "color"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "alarms_by_severity_for_wan_group",
+        "contextLabel": "Alarms By Type: {name}",
+        "params": [
+          {
+            "id": "customerId",
+            "key": "customerId"
+          }
+        ],
+        "filter-info": {
+          "params": [
+            {
+              "id": "severity",
+              "key": "name"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_CUSTOMER_ALERTS_MONITORING",
+      "context-type": "customer-account",
+      "impl-class": "com.cfx.indigo.portal.reports.CustomerQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_URL_RESPONSE_MONITORING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.NETAPP_VOLUME_STORAGE_MONITORING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.NETAPP_LUN_STORAGE_MONITORING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.NETAPP_COMPONENT_AVAILABILITY",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.NETAPP_SYSTEM_CPU_UTILIZATION",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.NETAPP_SYSTEM_NODE_CPU_UTILIZATION",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_URL_REACHABILITY_MONITORING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DEVICE_COMPONENT_DISK_UTILIZATION",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_DEVICE_COMPONENT_TEMPERATURE_MONITORING",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_ACTIVE_SESSION_UTILIZATION",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTRUTION_DETECTION_UTILIZATION",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.host.top.process.details_ssh",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "host_process_ssh_dashboard",
+        "contextLabel": "Process: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.processIdentifier",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "processIdentifier"
+          },
+          {
+            "id": "label",
+            "key": "ComponentInfo.processIdentifier"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_HOST_TOP_PROCESS_CPU_SSH",
+      "context-type": "host-process",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_HOST_TOP_PROCESS_MEMORY_SSH",
+      "context-type": "host-process",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.accessible.customers",
+      "impl-class": "com.cfx.advanced.reporting.handler.AccessibleCustomers"
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_CUSTOMER_MAINTENANCE_STATUS_MONITORING",
+      "context-type": "customer-account",
+      "impl-class": "com.cfx.indigo.portal.reports.CustomerQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_IN_OCTETS_DELTA_WINDOWS",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.qos.trend.QOS_INTERFACE_OUT_OCTETS_DELTA_WINDOWS",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {}
+    },
+    {
+      "name": "com.cfx.device.bgp.peer.ng.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "nokia_bgp_peer_ng_component_summary_details",
+        "contextLabel": "BGP Peer NG: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "total",
+            "key": "ComponentInfo.total"
+          },
+          {
+            "id": "name",
+            "key": "ComponentInfo.name"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.NOKIA_BGP_PEER_NG_MONITORING",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.NOKIA_VRTR_STATUS_TRENDING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.DeviceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.virtual.interfaces.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "nokia_virtual_router_interfaces_dashboard",
+        "contextLabel": "Virtual Interfaces : {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "vrtrifname",
+            "key": "ComponentInfo.vrtrifname"
+          },
+          {
+            "id": "vrtrname",
+            "key": "ComponentInfo.vrtrname"
+          },
+          {
+            "id": "vrtr_type_name",
+            "key": "ComponentInfo.vrtr_type_name"
+          },
+          {
+            "id": "vrtriftype",
+            "key": "ComponentInfo.vrtriftype"
+          }
+        ]
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.VIRTUAL_INTERFACE_OPERATIONAL_STATE_TRENDING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.VIRTUAL_INTERFACES_RECEIVE_BYTES_TRENDING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.VIRTUAL_INTERFACES_TRANSMIT_BYTES_TRENDING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.VIRTUAL_INTERFACES_RECEIVE_PACKETS_TRENDING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    },
+    {
+      "name": "com.cfx.device.qos.trend.VIRTUAL_INTERFACES_TRANSMIT_PACKETS_TRENDING",
+      "context-type": "com.cfx.monsanto.device.inventory",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+        "dialect": "influx"
+      }
+    }
+  ]
+}
+

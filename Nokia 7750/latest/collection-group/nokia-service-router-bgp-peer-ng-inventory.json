@@ -1,0 +1,53 @@
+{
+  "name": "io.macaw.feature.device.package.bgp.peer.ng.inventory",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "BgpPeerNg",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+    "is-component": true,
+    "component-type": "bgp-peer-ng",
+    "component-label-field": "name"
+  },
+  "data-handlers": [
+    {
+      "id": "bgp-peer-ng-inventory",
+      "post-collection-type": "data-persistence",
+      "component-definition": {
+        "component-info-fields": [
+          {
+            "index": "index",
+            "connectionstate": "conncetion-state",
+            "connectionString": "connection-string",
+            "PeerType": "peer-type",
+            "localas4byte": "local-as4-byte",
+            "peeras4byte": "peer-as4-byte"
+          }
+        ],
+        "fqn-fields": [
+          {
+            "index": "index"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "name": "io.macaw.feature.cambium.ptp.rfu.monitoring",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "RfuStatus",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+	"is-component": true,
+    "component-type": "device-rfu",
+    "component-label-field": "component",
+    "fqn-fields": [
+          {
+            "component": "physicalEntity"
+          }
+	 ]
+  },
+  "data-handlers": [
+    {
+      "id": "io.macaw.feature.cambium.ptp.rfu.monitoring.metric.rfu.rx.level",
+      "post-collection-type": "embedded-script",
+      "expression": "function io_macaw_feature_cambium_ptp_rfu_monitoring_metric_rfu_rx_level(data) {data.point.addField(\"type\", \"Receive\");var a= parseFloat(data.RfuRxLevel);return new java.lang.Double(a);}",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "RfuRxLevel": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "metricNameRx": "metricName"
+          }
+        ]
+      }
+    },
+	{
+      "id": "io.macaw.feature.cambium.ptp.rfu.monitoring.metric.rfu.status.communication",
+      "post-collection-type": "embedded-script",
+      "expression": "function io_macaw_feature_cambium_ptp_rfu_monitoring_metric_rfu_status_communication(data) {data.point.addField(\"type\", \"Communication Status\");var a= parseFloat(data.RfuCommunication);return new java.lang.Double(a);}",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "RfuCommunication": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "metricNameRfuS": "metricName"
+          }
+        ]
+      }
+    }
+	
+  ]
+}

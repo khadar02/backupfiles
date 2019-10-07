@@ -1,0 +1,51 @@
+{
+  "name": "io.macaw.feature.cambium.ptp.remote.radio.inventory",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "RemoteRadioStatus",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+    "is-component": true,
+    "component-type": "device-remoteradio",
+    "component-label-field": "component"
+  },
+  "data-handlers": [
+    {
+      "id": "cambium-remote-radio-inventory",
+      "post-collection-type": "data-persistence",
+      "component-definition": {
+        "component-info-fields": [
+          {
+            "RemoteTxLevel": "radio-remote-tx-Level",
+			"RemoteTxFreq": "radio-remote-tx-freq",
+			"RemoteRxFreq": "radio-remote-rx-freq"
+          }
+        ],
+        "fqn-fields": [
+          {
+            "component": "physicalEntity"
+          }
+        ]
+      }
+    }
+  ]
+}
+

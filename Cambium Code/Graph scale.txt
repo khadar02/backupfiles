@@ -1,0 +1,4 @@
+RX 	graphscale Y-axis 0 to -199 dbm
+TX 	graphscale Y-axis 34 to -99 dbm
+Freq	graphscale Y-axis	MHz
+BandWidth			MHz

@@ -1,0 +1,39 @@
+{
+  "name": "io.macaw.feature.cambium.ptp.sysinfo",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getSystemInformation",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String"
+    ],
+    "args": [
+  "__ENV_ID__",
+     "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__"
+    ]
+  },
+  "data-handlers": [
+    {
+      "id": "device_info",
+      "post-collection-type": "data-persistence",
+      "asset-definition": {
+        "asset-attributes": [
+          {
+            "sysDescr": "description",
+            "sysObjectID": "object-id",
+            "sysUpTime": "up-time",
+            "sysBootTime": "boot-time",
+            "sysContact": "contact",
+            "sysName": "name",
+            "sysLocation": "location",
+            "sysServices": "services"
+          }
+        ]
+      }
+    }
+  ]
+}

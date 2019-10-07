@@ -1,0 +1,76 @@
+    {
+      "name": "com.cfx.device.bgp.peer.ng.details",
+      "impl-class": "com.cfx.advanced.reporting.handler.ComponentsByCriteria",
+      "sql": {
+        "parameters": [
+          {
+            "name": "assetId"
+          }
+        ]
+      },
+      "contextInfo": {
+        "contextType": "device_bgp_peer_ng_component_summary_details",
+        "contextLabel": "BGP Peer NG: {label}",
+        "filter-info": {
+          "params": [
+            {
+              "id": "ComponentInfo.parent-link",
+              "key": "name"
+            }
+          ]
+        },
+        "params": [
+          {
+            "id": "id",
+            "key": "id"
+          },
+          {
+            "id": "componentId",
+            "key": "id"
+          },
+          {
+            "id": "assetId",
+            "key": "assetId"
+          },
+          {
+            "id": "name",
+            "key": "label"
+          },
+          {
+            "id": "ifDescr",
+            "key": "ifDescr"
+          },
+          {
+            "id": "ifIndex",
+            "key": "ComponentInfo.ifIndex"
+          },
+          {
+            "id": "parent-link",
+            "key": "ComponentInfo.parent-link"
+          },
+          {
+            "id": "index",
+            "key": "ComponentInfo.index"
+          },
+          {
+            "id": "total",
+            "key": "ComponentInfo.total"
+          },
+          {
+            "id": "endpoint",
+            "key": "ComponentInfo.endpoint"
+          }
+        ]
+      }
+    },
+	{
+      "name": "com.cfx.device.qos.trend.DEVICE_BGP_PEER_NG_MONITORING",
+      "context-type": "device_interface",
+      "impl-class": "com.cfx.indigo.portal.reports.InterfaceQOSUsageTrendReport",
+      "report-generator-type": "com.cfx.report.generator.type.linechart",
+      "sql": {
+		"dialect": "influx"
+	  }
+    }
+  ]
+}

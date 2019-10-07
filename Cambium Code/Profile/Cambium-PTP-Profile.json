@@ -1,0 +1,481 @@
+{
+  "id": "d4390acb-74ed-4e5c-88b1-9fbedaf5111a",
+  "type": "DEVICE",
+  "name": "Cambium PTP",
+  "description": "Monitors Cambium devices for PTP Model's 820S and 820C parameters",
+  "vendor": "Cambium",
+  "osType": "*",
+  "family": "BackHaul",
+  "protocol": "*",
+  "customerId": "*",
+  "isDefault": true,
+  "locked": false,
+  "origin": "SYSTEM",
+  "status": "ACTIVE",
+  "createdAt": 0,
+  "updatedBy": "SYSTEM",
+  "updatedAt": 1544526360000,
+  "features": [
+    {
+		"id": "io.macaw.feature.cambium.ptp.rfu.inventory",
+		"name": "Radio Frequency Unit Inventory",
+		"type": "inventory",
+		"enabled": true,
+		"schedule": "sys_every_1_minute",
+		"scheduleLabel": "Every 1 minute"
+	},
+	{
+		"id": "io.macaw.feature.cambium.ptp.rfu.monitoring",
+		"name": "Radio Frequency unit",
+		"type": "monitoring",
+		"enabled": true,
+		"schedule": "sys_every_5_minutes",
+		"scheduleLabel": "Every 5 minutes",
+		"metrics": [
+		{
+			"id": "io.macaw.feature.cambium.ptp.rfu.monitoring.metric.rfu.rx.level",
+			"name": "RFU Rx Level",
+			"enabled": true,
+			"alerts": [
+			{
+              "id": "io.macaw.feature.cambium.ptp.rfu.monitoring.metric.rfu.rx.level.alert",
+              "name": "RFU Rx Alert",
+              "type": "RFU Rx Alert",
+              "category": "RFU Rx Alert",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${RfuRxLevel}>=${highWaterMarkValue}",
+                  "clear": "${RfuRxLevel}<=${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 1.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "RFU RX Level has reached threshold Value."
+                }
+              ]
+			}
+            ]
+		},
+		{
+			"id": "io.macaw.feature.cambium.ptp.rfu.monitoring.metric.rfu.status.communication",
+			"name": "RFU Status Communication",
+			"enabled": true,
+			"alerts": [
+			{
+              "id": "io.macaw.feature.cambium.ptp.rfu.monitoring.metric.rfu.status.communication.alert",
+              "name": "RFU Status Communication Alert",
+              "type": "RFU Status Communication Alert",
+              "category": "RFU Status Communication Alert",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${RfuCommunication}>=${highWaterMarkValue}",
+                  "clear": "${RfuCommunication}<=${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 1.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "RFU Status Communication has reached threshold Value."
+                }
+              ]
+			}
+			]
+		}
+		]
+	},
+	{
+		"id": "io.macaw.feature.cambium.ptp.radio.monitoring",
+		"name": "Radio Status",
+		"type": "monitoring",
+		"enabled": true,
+		"schedule": "sys_every_5_minutes",
+		"scheduleLabel": "Every 5 minutes",
+		"metrics": [
+		{
+			"id": "io.macaw.feature.cambium.ptp.radio.monitoring.metric.status.mse",
+			"name": "Radio Mean Square Error",
+			"enabled": true,
+			"alerts": [
+			{
+              "id": "io.macaw.feature.cambium.ptp.radio.monitoring.metric.status.mse.alert",
+              "name": "Radio Mean Square Error Alert",
+              "type": "Radio Mean Square Error Alert",
+              "category": "Radio Mean Square Error Alert",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${RadioMSE}>=${highWaterMarkValue}",
+                  "clear": "${RadioMSE}<=${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 1.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Radio Mean Square Error has reached threshold Value."
+                }
+              ]
+			}
+			]
+		}
+		]
+	},
+	{
+		"id": "io.macaw.feature.cambium.ptp.remote.radio.inventory",
+		"name": "Remote Radio Status",
+		"type": "inventory",
+		"enabled": true,
+		"schedule": "sys_every_1_minute",
+		"scheduleLabel": "Every 1 minute"
+	},
+	{
+		"id": "io.macaw.feature.cambium.ptp.remote.radio.monitoring",
+		"name": "Remote Radio Status",
+		"type": "monitoring",
+		"enabled": true,
+		"schedule": "sys_every_5_minutes",
+		"scheduleLabel": "Every 5 minutes",
+		"metrics": [
+		{
+			"id": "io.macaw.feature.cambium.ptp.remote.radio.monitoring.metric.max.rx.level",
+			"name": "Remote Radio Rx Level",
+			"enabled": true,
+			"alerts": [
+			{
+              "id": "io.macaw.feature.cambium.ptp.remote.radio.monitoring.metric.max.rx.level.alert",
+              "name": "Remote Radio Rx Level Alert",
+              "type": "Remote Radio Rx Level Alert",
+              "category": "Remote Radio Rx Level Alert",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${RemoteRxLevel}>=${highWaterMarkValue}",
+                  "clear": "${RemoteRxLevel}<=${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 1.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Remote Radio Rx Level has reached threshold Value."
+                }
+              ]
+			}
+			]
+		},
+		{
+			"id": "io.macaw.feature.cambium.ptp.remote.radio.monitoring.metric.remote.radio.status",
+			"name": "Remote Radio Status Communication",
+			"enabled": true,
+			"alerts": [
+			{
+              "id": "io.macaw.feature.cambium.ptp.remote.radio.monitoring.metric.remote.radio.status.alert",
+              "name": "Remote Radio Status Communication Alert",
+              "type": "Remote Radio Status Communication Alert",
+              "category": "Remote Radio Status Communication Alert",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${RemoteRadioCommunication}>=${highWaterMarkValue}",
+                  "clear": "${RemoteRadioCommunication}<=${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 1.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Remote Radio Status Communication has reached threshold Value."
+                }
+              ]
+			}
+			]
+		}
+		]
+	},
+	{
+		"id": "io.macaw.feature.cambium.ptp.voltgae.monitoring",
+		"name": "Input Voltage",
+		"type": "monitoring",
+		"enabled": true,
+		"schedule": "sys_every_5_minutes",
+		"scheduleLabel": "Every 5 minutes",
+		"metrics": [
+		{
+			"id": "io.macaw.feature.cambium.ptp.voltage.monitoring.metric.input.voltage",
+			"name": "Input Voltage",
+			"enabled": true,
+			"alerts": [
+			{
+              "id": "io.macaw.feature.cambium.ptp.voltage.monitoring.metric.input.voltage.alert",
+              "name": "Input Voltage Alert",
+              "type": "Input Voltage Alert",
+              "category": "Input Voltage Alert",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${Voltage}>=${highWaterMarkValue}",
+                  "clear": "${Voltage}<=${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 1.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Input Supply Voltage has been down."
+                }
+              ]
+			}
+			]
+		}
+		]
+	},
+	{
+		"id": "io.macaw.feature.cambium.ptp.temperature.monitoring",
+		"name": "Temperature",
+		"type": "monitoring",
+		"enabled": true,
+		"schedule": "sys_every_5_minutes",
+		"scheduleLabel": "Every 5 minutes",
+		"metrics": [
+		{
+			"id": "io.macaw.feature.cambium.ptp.temperature.monitoring.metric.temperature",
+			"name": "Temperature",
+			"enabled": true,
+			"alerts": [
+			{
+              "id": "io.macaw.feature.cambium.ptp.temperature.monitoring.metric.temperature.alert",
+              "name": "Temperature Alert",
+              "type": "Temperature Alert",
+              "category": "Temperature Alert",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${Temperature}>=${highWaterMarkValue}",
+                  "clear": "${Temperature}<=${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 1.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Temperature has been reached threshold value."
+                }
+              ]
+			}
+			
+			]
+		}
+		]
+	},
+	{
+      "id": "io.macaw.feature.device_interface_inventory",
+      "name": "Interface Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+    {
+      "id": "io.macaw.feature.device_interface_monitoring",
+      "name": "Interface Monitoring",
+      "type": "monitoring",
+      "enabled": true,
+      "schedule": "sys_every_5_minutes",
+      "scheduleLabel": "Every 5 minutes",
+      "contextType": "Interface",
+      "contextId": "UP-Interfaces",
+      "metrics": [
+        {
+          "id": "io.macaw.feature.device_interface_monitoring.metric.packetdrops",
+          "name": "Interface Packet Drops",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.packetdrops.totalErrors.alert",
+              "name": "Interface Packet Errors(%)",
+              "type": "Interface Packet Errors(%)",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": false,
+              "criteria": [
+                {
+                  "active": "(${totalIfErrorsPercent} > ${highWaterMarkValue})",
+                  "clear": "",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 30.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 1,
+                  "message": "Interface \"${ifDescr}\" packet errors[${totalIfErrorsPercent}%] exceeded configured value ${highWaterMarkValue}%"
+                }
+              ]
+            },
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.packetdrops.totalDiscards.alert",
+              "name": "Interface Packet Discards(%)",
+              "type": "Interface Packet Discards(%)",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": false,
+              "criteria": [
+                {
+                  "active": "(${totalIfDiscardsPercent}  > ${highWaterMarkValue})",
+                  "clear": "",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 30.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 1,
+                  "message": "Interface \"${ifDescr}\" packet discards[${totalIfDiscardsPercent}%] exceeded configured value ${highWaterMarkValue}%"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "io.macaw.feature.device_interface_monitoring.metric.utilization",
+          "name": "Interface In Bits Utilization(%)",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.utilizationIn.alert",
+              "name": "Interface In Bit Utilization",
+              "type": "Interface In Bit Utilization",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${utilizationIn} > ${highWaterMarkValue}",
+                  "clear": "${utilizationIn} < ${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 90.0,
+                  "lowWaterMarkValue": 80.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Interface \"${ifDescr}\" In Bit utilization [${utilizationIn}%] exceeded configured threshold ${highWaterMarkValue}%"
+                }
+              ]
+            },
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.utilizationOut.alert",
+              "name": "Interface Out Bit Utilization",
+              "type": "Interface Out Bit Utilization",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${utilizationOut} > ${highWaterMarkValue}",
+                  "clear": "${utilizationOut} < ${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 90.0,
+                  "lowWaterMarkValue": 80.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Interface \"${ifDescr}\" Out Bit utilization [${utilizationOut}%] exceeded configured threshold ${highWaterMarkValue}%"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "io.macaw.feature.device_interface_monitoring.metric.operStatus",
+          "name": "Interface Operational State",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.operStatus.alert",
+              "name": "Interface Operational State",
+              "type": "Interface Operational State",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${ifOperStatus} != ${highWaterMarkValue}",
+                  "clear": "${ifOperStatus} == ${highWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 1.0,
+                  "lowWaterMarkValue": 1.0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Interface \"${ifDescr}\" is down"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "id": "io.macaw.feature.device_interface_inventory",
+      "name": "Interface Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+	{
+      "id": "io.macaw.feature.device_availability",
+      "name": "Device Availability",
+      "type": "reachability",
+      "enabled": true,
+      "schedule": "sys_every_3_minutes",
+      "scheduleLabel": "Every 3 minutes",
+      "metrics": [
+        {
+          "id": "io.macaw.feature.device_avalability.metric.availability_percent",
+          "name": "Device Availability(%)",
+          "enabled": true
+        },
+        {
+          "id": "io.macaw.feature.device_avalability.metric.reachability_percent",
+          "name": "SNMP Device Reachability(%)",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "io.macaw.feature.brocade_device_availability.metric.reachability_percent.alert",
+              "name": "SNMP Device Reachability(%)",
+              "type": "SNMP Device Reachability(%)",
+              "category": "Device",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${reachabilityStatus} != ${highWaterMarkValue}",
+                  "clear": "${reachabilityStatus} == ${highWaterMarkValue}",
+                  "highWaterMarkPercent": 0.0,
+                  "lowWaterMarkPercent": 0.0,
+                  "highWaterMarkValue": 100.0,
+                  "lowWaterMarkValue": 0.0,
+                  "severity": "CRITICAL",
+                  "minimumOccurrence": 3,
+                  "message": "Device is unreachable via SNMP"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+	
+  ]
+}

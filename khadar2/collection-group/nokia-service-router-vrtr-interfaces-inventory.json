@@ -1,0 +1,60 @@
+{
+  "name": "io.macaw.feature.nokia.service.router.vrtr.interfaces.inventory",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "VrtrInterfaces",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+    "is-component": true,
+    "component-type": "virtual-interfaces",
+    "component-label-field": "vRtrIfName"
+  },
+  "data-handlers": [
+    {
+      "id": "service-router-interfaces-inventory",
+      "post-collection-type": "data-persistence",
+      "component-definition": {
+        "component-info-fields": [
+          {
+            "vrtrName": "vrtrname",
+            "ifIndex": "ifindex",
+            "vRtrIfName": "vrtrifname",
+            "vRtrIfType": "vrtriftype",
+            "statusString": "vrtr-if-oper-status",
+            "vRtrIfAdminStateStatus": "vrtr-if-admin-status",
+            "vRtrIfAdminState": "vrtr-if-admin-state",
+            "vRtrIfOperState": "vrtr-if-oper-State",
+            "vRtrIfRxBytes": "vrtr-if-rx-bytes",
+            "vRtrIfTxBytes": "vrtr-if-tx-bytes",
+            "vRtrIfRxPkts": "vrtr-if-rx-pkts",
+            "vRtrIfTxPkts": "vrtr-if-tx-pkts"
+          }
+        ],
+        "fqn-fields": [
+          {
+            "vrtr_type_name": "vrtr-type-name"
+          }
+        ]
+      }
+    }
+  ]
+}
+

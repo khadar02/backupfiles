@@ -1,0 +1,496 @@
+{
+  "device-key": [
+    {
+      "vendor": "Nokia",
+      "model": "*",
+      "osType": "SR OS",
+      "version": "*",
+      "family": "Router"
+    }
+  ],
+  "feature-entities": {
+    "CPUInventory": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "CPU",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": " The value of sgiCpuUsage indicates the current CPU utilization for the system.",
+              "name": "sgiCpuUsage",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.1.0",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Cpu.js"
+      }
+    },
+    "CPUMonitoring": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "CPU",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": " The value of sgiCpuUsage indicates the current CPU utilization for the system.",
+              "name": "sgiCpuUsage",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.1.0",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Cpu.js"
+      }
+    },
+    "MemoryInventory": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "Memory",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": " The value of sgiMemoryUsed indicates the total pre-allocated pool memory currently in use on the system. If the value is greater than the maximum value reportable by this object then this object reports its maximum value (4,294,967,295) and sgiKbMemoryUsed must be used to determine the total pre-allocated pool memory.",
+              "name": "sgiMemoryUsed",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.2.0",
+              "type": "int32"
+            },
+            {
+              "description": "The value of sgiMemoryAvailable indicates the amount of free memory in the overall system that is not allocated to memory pools, but is available in case a memory pool needs to grow.",
+              "name": "sgiMemoryAvailable",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.3.0",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Memory.js"
+      }
+    },
+    "MemoryMonitoring": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "Memory",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": " The value of sgiMemoryUsed indicates the total pre-allocated pool memory currently in use on the system. If the value is greater than the maximum value reportable by this object then this object reports its maximum value (4,294,967,295) and sgiKbMemoryUsed must be used to determine the total pre-allocated pool memory.",
+              "name": "sgiMemoryUsed",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.2.0",
+              "type": "int32"
+            },
+            {
+              "description": "The value of sgiMemoryAvailable indicates the amount of free memory in the overall system that is not allocated to memory pools, but is available in case a memory pool needs to grow.",
+              "name": "sgiMemoryAvailable",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.3.0",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Memory.js"
+      }
+    },
+    "DiskInventory": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "Disk",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "description": " The value of tmnxCpmFlashCapacity indicates the maximum size of this flash unit in 512-byte sectors.",
+              "name": "tmnxCpmFlashCapacity",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.3.7.1.6",
+              "type": "int32"
+            },
+            {
+              "description": " The value of tmnxCpmFlashUsed indicates the amount used, in 512-byte sectors, of this flash unit's total capacity.",
+              "name": "tmnxCpmFlashUsed",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.3.7.1.7",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Disk.js"
+      }
+    },
+    "DiskMonitoring": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "Disk",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "description": " The value of tmnxCpmFlashCapacity indicates the maximum size of this flash unit in 512-byte sectors.",
+              "name": "tmnxCpmFlashCapacity",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.3.7.1.6",
+              "type": "int32"
+            },
+            {
+              "description": " The value of tmnxCpmFlashUsed indicates the amount used, in 512-byte sectors, of this flash unit's total capacity.",
+              "name": "tmnxCpmFlashUsed",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.3.7.1.7",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Disk.js"
+      }
+    },
+    "FanInventory": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "Fan",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "description": "The unique value which identifies a specific fan tray in the chassis.",
+              "name": "tmnxChassisFanIndex",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.4.1.1",
+              "type": "int32"
+            },
+            {
+              "description": "Current status of the Fan tray",
+              "name": "tmnxChassisFanOperStatus",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.4.1.2",
+              "type": "int32"
+            },
+            {
+              "description": " The value of tmnxChassisFanSpeed indicates if the fans in this fan tray are running at 'lowSpeed', 'halfSpeed' or 'fullSpeed'.",
+              "name": "tmnxChassisFanSpeed",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.4.1.3",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Fan.js"
+      }
+    },
+    "PowerSupplyInventory": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "power1",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "description": "The unique identifier index for a power supply tray in the chassis.",
+              "name": "tmnxChassisPowerSupplyId",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.5.1.1",
+              "type": "int32"
+            },
+            {
+              "description": "The overall status of an equipped power supply. For AC multiple power supplies, this represents the overall status of the first power supply in the tray (or shelf). For any other type, this represents the overall status of the power supply. If tmnxChassisPowerSupply1Status is 'deviceStateOk', then all monitored statuses are 'deviceStateOk'. A value of 'deviceStateFailed' represents a condition where at least one monitored status is in a failed state.",
+              "name": "tmnxChassisPowerSupply1Status",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.5.1.6",
+              "type": "int32"
+            },
+            {
+              "description": " If the value of tmnxChassisPowerSupplyInputStatus is 'deviceStateOk', the input voltage of the power supply is within range.  If the value is 'deviceStateFailed', an input voltage out of range condition has been detected. A value of 'deviceNotEquipped' indicates that the power supply is not present.",
+              "name": "tmnxChassisPowerSupplyInputStatus",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.5.1.9",
+              "type": "int32"
+            },
+            {
+              "description": "If the value of tmnxChassisPowerSupplyOutputStatus is 'deviceStateOk', the output voltage of the power supply is within range.  If the value is 'deviceStateFailed', an output voltage out of range condition has been detected. A value of 'deviceNotEquipped' indicates that the power supply is not present.",
+              "name": "tmnxChassisPowerSupplyOutputStatus",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.5.1.10",
+              "type": "int32"
+            }
+          ]
+        },
+        {
+          "name": "power2",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "description": "The unique identifier index for a power supply tray in the chassis.",
+              "name": "tmnxChassisPowerSupplyId",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.5.1.1",
+              "type": "int32"
+            },
+            {
+              "description": "The overall status of an equipped power supply. For AC multiple power supplies, this represents the overall status of the second power supply in the tray (or shelf). For any other type, this field is unused and set to 'deviceNotEquipped'. If tmnxChassisPowerSupply2Status is 'deviceStateOk', then all monitored statuses are 'deviceStateOk'. A value of 'deviceStateFailed' represents a condition where at least one monitored status is in a failed state.",
+              "name": "tmnxChassisPowerSupply2Status",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.5.1.7",
+              "type": "int32"
+            },
+            {
+              "description": " If the value of tmnxChassisPowerSupplyInputStatus is 'deviceStateOk', the input voltage of the power supply is within range.  If the value is 'deviceStateFailed', an input voltage out of range condition has been detected. A value of 'deviceNotEquipped' indicates that the power supply is not present.",
+              "name": "tmnxChassisPowerSupplyInputStatus",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.5.1.9",
+              "type": "int32"
+            },
+            {
+              "description": "If the value of tmnxChassisPowerSupplyOutputStatus is 'deviceStateOk', the output voltage of the power supply is within range.  If the value is 'deviceStateFailed', an output voltage out of range condition has been detected. A value of 'deviceNotEquipped' indicates that the power supply is not present.",
+              "name": "tmnxChassisPowerSupplyOutputStatus",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.5.1.10",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Power.js"
+      }
+    },
+    "ProductInformation": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "ProductInformation",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": "The value of sgiSwMajorVersion indicates the major version number of the software running on the active CPM card.",
+              "name": "sgiSwMajorVersion",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.5.0",
+              "type": "int32"
+            },
+            {
+              "description": "The value of sgiSwMinorVersion indicates the minor version number of the software running on the active CPM card.",
+              "name": "sgiSwMinorVersion",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.6.0",
+              "type": "int32"
+            },
+            {
+              "description": "The value of sgiSwVersionModifier indicates additional information about the version of software running on the active CPM card.",
+              "name": "sgiSwVersionModifier",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.1.1.7.0",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Product-Information.js"
+      }
+    },
+    "TemperatureInventory": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "temperature",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "type": "int32",
+              "description": "The value of tmnxHwIndex is a unique index that identifies common management information for Alcatel-Lucent SROS series manufactured hardware components within the specified chassis. ",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.8.1.1",
+              "name": "tmnxHwIndex"
+            },
+            {
+              "type": "int32",
+              "description": "The value of tmnxHwName is the name of the component as assigned by the system software itself and is suitable for use in CLI commands. This may be a text name such as 'console' or a port ID such as '2/2'. If there is no predefined name then a zero length string is returned. Note that the value of tmnxHwName for two component entries will be the same if the CLI does not distinguish between them, e.g.  the chassis slot-1 and the card in slot-1. ",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.8.1.8",
+              "name": "tmnxHwName"
+            },
+            {
+              "type": "int32",
+              "description": "The value of tmnxHwTempSensor indicates whether or not this hardware component contains a temperature sensor.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.8.1.17",
+              "name": "tmnxHwTempSensor"
+            },
+            {
+              "type": "int32",
+              "description": " The current temperature reading in degrees celsius from this hardware component's temperature sensor.  If this component does not contain a temperature sensor, then the value -1 is returned.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.8.1.18",
+              "name": "tmnxHwTemperature"
+            },
+            {
+              "description": " The temperature threshold for this hardware component in degrees celsius.  When the value of tmnxHwTemperature raises above tmnxHwTempThreshold, a 'temperature too high' event will be generated.",
+              "name": "tmnxHwTempThreshold",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.2.1.8.1.19",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Temperature.js"
+      }
+    },
+    "BgpPeerNg": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "bgppeerng",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "type": "string",
+              "description": "The value of tBgpPeerNgConnState indicates the BGP peer connection state. This object is the shadow object of bgpPeerState as existing in the BGP4-MIB.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.14.4.7.1.59",
+              "name": "tBgpPeerNgConnState"
+            },
+            {
+              "type": "string",
+              "description": "The value of tBgpPeerNgDescription specifies a user provided description string for this Peer Group. It can consist of any printable, seven-bit ASCII characters up to 80 characters in length.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.14.4.7.1.7",
+              "name": "tBgpPeerNgDescription"
+            },
+            {
+              "type": "string",
+              "description": " The value of tBgpPeerNgPeerType specifies the type of peer - noType(1), internal(2) and external(3). Default value if not set is noType - the peer has to infer its value based on local-as, and peer-as in that case.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.14.4.7.1.27",
+              "name": "tBgpPeerNgPeerType"
+            },
+            {
+              "type": "string",
+              "description": " The value of tBgpPeerNgLocalAS4Byte specifies the autonomous system number to be advertised to this peer.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.14.4.7.1.65",
+              "name": "tBgpPeerNgLocalAS4Byte"
+            },
+            {
+              "type": "string",
+              "description": "The value of tBgpPeerNgPeerAS4Byte specifies the autonomous system number for the remote peer.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.14.4.7.1.66",
+              "name": "tBgpPeerNgPeerAS4Byte"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Bgp-PeerNg.js"
+      }
+    },
+    "Vrtr": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "Vrtr",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "type": "string",
+              "description": "The administritive name for this virtual router. The router name must be unique among all virtual routers in the system. For row creation to succeed a value must be specified for vRtrName. When a row is created in the vRtrConfTable for a service vprn (i.e. when vRtrType is set to 'vprn'), the agent automatically assigns the name 'vprn<service-id>'.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.1.1.4",
+              "name": "vRtrName"
+            },
+            {
+              "type": "string",
+              "description": " vRtrOperState indicates current operational status of this virtual router.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.2.1.1",
+              "name": "vRtrOperState"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Vrtr.js"
+      }
+    },
+    "VrtrInterfaces": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "vRtrName1",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "type": "string",
+              "description": "The administritive name for this virtual router. The router name must be unique among all virtual routers in the system. For row creation to succeed a value must be specified for vRtrName. When a row is created in the vRtrConfTable for a service vprn (i.e. when vRtrType is set to 'vprn'), the agent automatically assigns the name 'vprn<service-id>'.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.1.1.4",
+              "name": "vRtrName"
+            }
+          ]
+        },
+        {
+          "name": "VrtrIftable",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "type": "string",
+              "description": " The value of vRtrIfType specifies the type of this interface. Different virtual router interface types are defined as follows: network               - defined on a network port. service               - used internally. serviceIes            - defined on a SAP or Spoke SDP. serviceRtdVpls        - obsoleted. serviceVprn           - defined on a SAP or Spoke SDP. serviceIesSubscriber  - used internally. serviceIesGroup       - defined on a SAP serviceVprnSubscriber - used internally. serviceVprnGroup      - defined on a SAP. serviceIesRedundant   - defined on a Spoke SDP. serviceVprnRedundant  - defined on a Spoke SDP. serviceVpls           - defined on an IP endpoint for VPLS. serviceIesCem         - defined on a SAP. --not supported serviceVprnCem        - defined on a SAP. --not supported serviceVprnIPsec      - defined on a SAP. serviceVprnIPMirror   - defined on a Mirror. serviceVideo          - defined on a video SAP. serviceVplsVideo      - defined on an IP endpoint for video interface for VPLS. multiHomingPrimary    - defined for a primary interface. multiHomingSecondary  - defined for a secondary interface. serviceIesTunnel      - defined on a SAP. serviceIpReas         - defined on a network port. networkIpReas         - defined on a network port. networkVprn           - network interface defined in a VPRN. tmsService            - threat management service interface. serviceIesAarp        - defined on an AARP (Assymetry Removal) Spoke SDP. serviceVprnAarp       - defined on an AARP Spoke SDP. serviceIesAa          - defined on an AA (Application Assurance) SAP. serviceVprnAa         - defined on an AA SAP. unnumMplsTp           - defined for an unummbered mpls tp interface.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.4.1.3",
+              "name": "vRtrIfType"
+            },
+            {
+              "type": "string",
+              "description": " The administrative name assigned this router interface. The interface name must be unique among entries with the same vRtrID value. In order for row creation to succeed, a value must also be assigned to vRtrIfName.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.4.1.4",
+              "name": "vRtrIfName"
+            },
+            {
+              "type": "string",
+              "description": " The desired administrative state for this router interface.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.4.1.8",
+              "name": "vRtrIfAdminState"
+            },
+            {
+              "type": "string",
+              "description": " The current operational status of this router interface.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.4.1.9",
+              "name": "vRtrIfOperState"
+            }
+          ]
+        },
+        {
+          "name": "VrtrIfStatstable",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "type": "string",
+              "description": "The value of vRtrIfRxBytes indicates the number of total bytes received by this interface.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.54.1.43",
+              "name": "vRtrIfRxBytes"
+            },
+            {
+              "type": "string",
+              "description": "  The value of vRtrIfTxBytes indicates the number of total bytes sent by this interface.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.74.1.4",
+              "name": "vRtrIfTxBytes"
+            },
+            {
+              "type": "string",
+              "description": " The value of vRtrIfRxPkts indicates the number of total packets received by this interface.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.54.1.40",
+              "name": "vRtrIfRxPkts"
+            },
+            {
+              "type": "string",
+              "description": "The value of vRtrIfTxPkts indicates the number of total packets sent by this interface.",
+              "oid": ".1.3.6.1.4.1.6527.3.1.2.3.74.1.1",
+              "name": "vRtrIfTxPkts"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Nokia-Service-Router-Vrtriftable.js"
+      }
+    }
+  }
+}

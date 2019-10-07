@@ -1,0 +1,49 @@
+{
+  "name": "io.macaw.feature.cambium.ptp.voltgae.monitoring",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "Voltage",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+    "is-component": false
+  },
+  "data-handlers": [
+    {
+      "id": "io.macaw.feature.cambium.ptp.voltage.monitoring.metric.input.voltage",
+      "post-collection-type": "embedded-script",
+      "expression": "function io_macaw_feature_cambium_ptp_voltage_monitoring_metric_input_voltage(data) {data.point.addField(\"type\", \"Voltage\");var a= parseFloat(data.Voltage);return new java.lang.Double(a);}",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "Voltage": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "metricNameV": "metricName"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+    {
+      "id": "nokia_bgp_peer_ng_component_details",
+      "definition": {
+        "widgetId": "nokia_bgp_peer_ng_component_details",
+        "id": "nokia_bgp_peer_ng_component_details",
+        "name": "BGP Peer NG ",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.bgp.peer.ng.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "os-type",
+                "value": "SR OS",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    }

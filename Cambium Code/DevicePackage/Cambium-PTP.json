@@ -1,0 +1,178 @@
+{
+	"device-key": [{
+		"vendor": "Cambium",
+		"osType": "*",
+		"model": "*",
+		"family": "BACKHAUL",
+		"version": "*"
+	}],
+	"feature-entities": {
+		"RfuStatus": {
+			"entityType": "VECTOR",
+			"properties": [],
+			"queries": [{
+				"name": "RfuStatus",
+				"queryType": "TABLE",
+				"fields": [
+					{
+						"description": "This value indicates the RFU receive Level Status",
+						"name": "genEquipRfuStatusRxLevel",
+						"oid": ".1.3.6.1.4.1.2281.10.5.1.1.2",
+						"type": "int32"
+					},
+					{
+						"description": "This value indicates the RFU transmit Level Status",
+						"name": "genEquipRfuStatusTxLevel",
+						"oid": ".1.3.6.1.4.1.2281.10.5.1.1.3",
+						"type": "int32"
+					},
+					{
+						"description": "The maximum Tx frequency of the RFU that is allowed by the RFU.",
+						"name": "genEquipRfuStatusRFUMaxTxFreq",
+						"oid": ".1.3.6.1.4.1.2281.10.5.1.1.16",
+						"type": "int32"
+					},
+					{
+						"description": "The minimum Tx frequency of the RFU that is allowed by the RFU.",
+						"name": "genEquipRfuStatusRFUMinTxFreq",
+						"oid": ".1.3.6.1.4.1.2281.10.5.1.1.17",
+						"type": "int32"
+					},
+					{
+						"description": "The maximum Rx frequency of the RFU that is allowed by the RFU.",
+						"name": "genEquipRfuStatusRFUMaxRxFreq",
+						"oid": ".1.3.6.1.4.1.2281.10.5.1.1.18",
+						"type": "int32"
+					},
+					{
+						"description": "The minimum Rx frequency of the RFU that is allowed by the RFU.",
+						"name": "genEquipRfuStatusRFUMinRxFreq",
+						"oid": ".1.3.6.1.4.1.2281.10.5.1.1.19",
+						"type": "int32"
+					},
+					{
+						"description": "This value indicates the RFU transmit Level Status",
+						"name": "genEquipRfuStatusMinBW",
+						"oid": ".1.3.6.1.4.1.2281.10.5.1.1.28",
+						"type": "int32"
+					},
+					{
+						"description": "The minimum supported bandwidth in KHz of the RF-Module",
+						"name": "genEquipRfuStatusMaxBW",
+						"oid": ".1.3.6.1.4.1.2281.10.5.1.1.29",
+						"type": "int32"
+					},
+					{
+						"description": "The maximum supported bandwidth in KHz of the RF-Module",
+						"name": "genEquipRfuStatusCommunication",
+						"oid": ".1.3.6.1.4.1.2281.10.5.1.1.30",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Cambium-PTP-RfuStatus.js"
+			}
+		},
+		"RadioStatus":{
+			"entityType": "VECTOR",
+			"properties": [],
+			"queries": [{
+				"name": "RadioStatus",
+				"queryType": "TABLE",
+				"fields": [
+					{
+						"description": "MSE (Mean Square Error) of the Rx signal (measured in dB * 100). -9900 value (-99.00 dB) means that the signal is not locked. ~ -3500 value (-35.00 dB) is a good MSE.",
+						"name": "genEquipRadioStatusMSE",
+						"oid": ".1.3.6.1.4.1.2281.10.7.1.1.2",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Cambium-PTP-RadioStatus.js"
+			}
+		},
+		"RemoteRadioStatus":{
+			"entityType": "VECTOR",
+			"properties": [],
+			"queries": [{
+				"name": "RemoteRadioStatus",
+				"queryType": "TABLE",
+				"fields": [
+					{
+						"description": "The operational status of the remote radio.",
+						"name": "genEquipRemoteRadioRemoteCommunication",
+						"oid": ".1.3.6.1.4.1.2281.10.7.3.1.1.2",
+						"type": "int32"
+					},
+					{
+						"description": "The Rx level of the remote radio (in dBm).",
+						"name": "genEquipRemoteRadioRemoteRxLevel",
+						"oid": ".1.3.6.1.4.1.2281.10.7.3.1.1.4",
+						"type": "int32"
+					},
+					{
+						"description": "Command that forces the remote radio maximum Tx level (in dBm)",
+						"name": "genEquipRemoteRadioRemoteForceMaxTxLevel",
+						"oid": ".1.3.6.1.4.1.2281.10.7.3.1.1.5",
+						"type": "int32"
+					},
+					{
+						"description": "The remote radio Tx frequancy (in MHz)",
+						"name": "genEquipRemoteRadioRemoteTxFreq",
+						"oid": ".1.3.6.1.4.1.2281.10.7.3.1.1.6",
+						"type": "int32"
+					},
+					{
+						"description": "The remote radio Rx frequancy (in MHz)",
+						"name": "genEquipRemoteRadioRemoteRxFreq",
+						"oid": ".1.3.6.1.4.1.2281.10.7.3.1.1.7",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Cambium-PTP-RemoteRadioStatus.js"
+			}
+		},
+		"Temperature":{
+			"entityType": "SCALAR",
+			"properties": [],
+			"queries": [{
+				"name": "Temperature",
+				"queryType": "GET",
+				"fields": [
+					{
+						"description": "This value indicates the IDU temperature, according to the measurement system chosen.",
+						"name": "genEquipUnitIduTemperature",
+						"oid": ".1.3.6.1.4.1.2281.10.1.1.9.0",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Cambium-PTP-Temperature.js"
+			}
+		},
+		"Voltage":{
+			"entityType": "SCALAR",
+			"properties": [],
+			"queries": [{
+				"name": "Voltage",
+				"queryType": "GET",
+				"fields": [
+					{
+						"description": "Voltages Input.",
+						"name": "genEquipUnitIduVoltageInput",
+						"oid": ".1.3.6.1.4.1.2281.10.1.1.10.0",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Cambium-PTP-Voltage.js"
+			}
+		}
+	}
+}

@@ -1,0 +1,142 @@
+{
+  "name": "io.macaw.feature.nokia.service.router.vrtr.interfaces.monitoring",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "VirtualRouterInterfaces",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+    "is-component": true,
+    "is-cache-required" : true,
+    "component-type": "virtual-router-interfaces",
+    "component-label-field": "vRtrIfName",
+    "fqn-fields": [
+      {
+        "vrtr_type_name": "vrtr-type-name"
+      }
+    ]
+  },
+  "data-handlers": [
+    {
+      "id": "io.macaw.feature.nokia.service.router.vrtr.interfaces.operation.state.metric.monitoring",
+      "post-collection-type": "embedded-script",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "vRtrIfOperState": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "vrtrName": "componentId",
+            "vRtrIfName": "type",
+            "metricName": "metricName"
+          }
+        ]
+      }
+    },
+    {
+      "id": "io.macaw.feature.nokia.service.router.vrtr.interfaces.rxbytes.metric.monitoring",
+      "post-collection-type": "custom-script",
+      "post-collection-handler": "nokia_vrtr_rx_bytes.js",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "vRtrIfRxBytes": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "vrtrName": "componentId",
+            "vRtrIfName": "type",
+            "metricNameRB": "metricName"
+          }
+        ]
+      }
+    },
+    {
+      "id": "io.macaw.feature.nokia.service.router.vrtr.interfaces.txbytes.metric.monitoring",
+      "post-collection-type": "custom-script",
+      "post-collection-handler": "nokia_vrtr_tx_bytes.js",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "vRtrIfTxBytes": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "vrtrName": "componentId",
+            "vRtrIfName": "type",
+            "metricNameTB": "metricName"
+          }
+        ]
+      }
+    },
+    {
+      "id": "io.macaw.feature.nokia.service.router.vrtr.interfaces.rxpkts.metric.monitoring",
+      "post-collection-type": "custom-script",
+      "post-collection-handler": "nokia_vrtr_rx_packets.js",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "vRtrIfRxPkts": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "vrtrName": "componentId",
+            "vRtrIfName": "type",
+            "metricNameRP": "metricName"
+          }
+        ]
+      }
+    },
+    {
+      "id": "io.macaw.feature.nokia.service.router.vrtr.interfaces.txpkts.metric.monitoring",
+      "post-collection-type": "custom-script",
+      "post-collection-handler": "nokia_vrtr_tx_packets.js",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "vRtrIfTxPkts": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "vrtrName": "componentId",
+            "vRtrIfName": "type",
+            "metricNameTP": "metricName"
+          }
+        ]
+      }
+    }
+  ]
+}

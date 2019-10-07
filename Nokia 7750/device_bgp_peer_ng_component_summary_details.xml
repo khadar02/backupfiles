@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfx:Report identifier="device_bgp_peer_ng_component_summary_details" xmlns:cfx="http://www.cloudfabrix.com/schemas/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.cloudfabrix.com/schemas/1.0 ../../xsd/cfx-report.xsd ">
+  <cfx:ReportProperties>
+    <cfx:Title>Summary</cfx:Title>
+    <cfx:Description></cfx:Description>
+    <cfx:Type>SummaryTable</cfx:Type>
+    <cfx:Version>1.0.1</cfx:Version>
+    <cfx:HelpId>device_bgp_peer_ng_component_summary_details</cfx:HelpId>
+    <cfx:CriteriaSupported>false</cfx:CriteriaSupported>
+    <cfx:RefreshEnabled>false</cfx:RefreshEnabled>
+    <cfx:Export>false</cfx:Export>
+    <cfx:ColumnSelector>false</cfx:ColumnSelector>
+  </cfx:ReportProperties>
+  <cfx:ModelProperties>
+    <cfx:ModelId></cfx:ModelId>
+    <cfx:ActionHandlerList>
+      <cfx:ActionHandler>
+        <cfx:className>com.cfx.server.handlers.actions.JsBaseReportActionHandler</cfx:className>
+        <cfx:ServiceName>advanced-reporting-service</cfx:ServiceName>
+        <cfx:Operation>GET</cfx:Operation>
+        <cfx:MethodName>getTabularReport</cfx:MethodName>
+        <cfx:MethodArgList>
+          <cfx:MethodArg>reportId</cfx:MethodArg>
+          <cfx:MethodArg>contextInfo</cfx:MethodArg>
+        </cfx:MethodArgList>
+        <cfx:ScriptName>uiservice/get_tabular_report.js</cfx:ScriptName>
+        <cfx:parseResponse>false</cfx:parseResponse>
+      </cfx:ActionHandler>
+    </cfx:ActionHandlerList>
+  </cfx:ModelProperties>
+  <cfx:ColumnList>
+   <cfx:Column identifier="label">
+      <cfx:Title>Name</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+      <cfx:Key>true</cfx:Key>
+    </cfx:Column>
+    <cfx:Column identifier="index">
+      <cfx:Title>Index</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+    <cfx:Column identifier="peer-type">
+      <cfx:Title>Type</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+	<cfx:Column identifier="local-as4-byte">
+      <cfx:Title>Local AS4 Byte</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+    <cfx:Column identifier="peer-as4-byte">
+      <cfx:Title>Peer As4 Byte</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+	<cfx:Column identifier="connection-string">
+      <cfx:Title>Connection State</cfx:Title>
+      <cfx:Type>String</cfx:Type>
+    </cfx:Column>
+    
+    <cfx:Column identifier="alarm-severity">
+      <cfx:Title>Severity</cfx:Title>
+      <cfx:Key>true</cfx:Key>
+      <cfx:Type>Enum</cfx:Type>
+      <cfx:Formatter>enum</cfx:Formatter>
+      <cfx:HtmlElement>
+        <cfx:Name>span</cfx:Name>
+        <cfx:HtmlAttribute>
+          <cfx:Name>style</cfx:Name>
+          <cfx:HtmlAttributeProperty>
+            <cfx:CFXHtmlColorMap>
+              <cfx:FormatKeyColumn>ComponentInfo.alarm-severity</cfx:FormatKeyColumn>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Critical</cfx:FormatKey>
+                <cfx:FormatVal>#D32F2F</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Clear</cfx:FormatKey>
+                <cfx:FormatVal>Green</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Information</cfx:FormatKey>
+                <cfx:FormatVal>#A6E2E2</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Notification</cfx:FormatKey>
+                <cfx:FormatVal>#078ACC</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Major</cfx:FormatKey>
+                <cfx:FormatVal>#FF5722</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Minor</cfx:FormatKey>
+                <cfx:FormatVal>#FF9800</cfx:FormatVal>
+              </cfx:FormatDetails>
+              <cfx:FormatDetails>
+                <cfx:FormatKey>Warning</cfx:FormatKey>
+                <cfx:FormatVal>#FFC107</cfx:FormatVal>
+              </cfx:FormatDetails>
+            </cfx:CFXHtmlColorMap>
+          </cfx:HtmlAttributeProperty>
+        </cfx:HtmlAttribute>
+      </cfx:HtmlElement>
+      <cfx:ListOfValues>
+        <cfx:StaticData>
+          <cfx:LOVList>
+            <cfx:LOV identifier="CRITICAL">
+              <cfx:DisplayName>Critical</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="CLEAR">
+              <cfx:DisplayName>Clear</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="INFORMATION">
+              <cfx:DisplayName>Information</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="MAJOR">
+              <cfx:DisplayName>Major</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="MINOR">
+              <cfx:DisplayName>Minor</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="WARNING">
+              <cfx:DisplayName>Warning</cfx:DisplayName>
+            </cfx:LOV>
+            <cfx:LOV identifier="NOTIFICATION">
+              <cfx:DisplayName>Notification</cfx:DisplayName>
+            </cfx:LOV>
+          </cfx:LOVList>
+        </cfx:StaticData>
+      </cfx:ListOfValues>
+    </cfx:Column>
+    
+  </cfx:ColumnList>
+</cfx:Report>

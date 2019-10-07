@@ -1,0 +1,4269 @@
+{
+  "components": [
+    {
+      "id": "device_summary_details",
+      "definition": {
+        "widgetId": "device_summary_details",
+        "id": "device_summary_details",
+        "name": "Summary",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.summary.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Hypervisor",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualMachine",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 3,
+      "heightType": "TYPE_2",
+      "type": "REPORT",
+      "subType": "SUMMARY_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_summary_details_host",
+      "definition": {
+        "widgetId": "device_summary_details_host",
+        "id": "device_summary_details_host",
+        "name": "Summary",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.summary.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "SNMP",
+            "operator": "NOT_CONTAINS"
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 3,
+      "heightType": "TYPE_2",
+      "type": "REPORT",
+      "subType": "SUMMARY_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_summary_details_host_win_snmp",
+      "definition": {
+        "widgetId": "device_summary_details_host_win_snmp",
+        "id": "device_summary_details_host_win_snmp",
+        "name": "Summary",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.summary.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "SNMP",
+            "operator": "CONTAINS"
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 3,
+      "heightType": "TYPE_2",
+      "type": "REPORT",
+      "subType": "SUMMARY_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_summary_details_hypervisor",
+      "definition": {
+        "widgetId": "device_summary_details_hypervisor",
+        "id": "device_summary_details_hypervisor",
+        "name": "Summary",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.summary.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Hypervisor",
+            "operator": "EQUALS"
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 3,
+      "heightType": "TYPE_2",
+      "type": "REPORT",
+      "subType": "SUMMARY_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_summary_details_vm",
+      "definition": {
+        "widgetId": "device_summary_details_vm",
+        "id": "device_summary_details_vm",
+        "name": "Summary",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.summary.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "VirtualMachine",
+            "operator": "EQUALS"
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 3,
+      "heightType": "TYPE_2",
+      "type": "REPORT",
+      "subType": "SUMMARY_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_summary_details_emc_block",
+      "definition": {
+        "widgetId": "device_summary_details_emc_block",
+        "id": "device_summary_details_emc_block",
+        "name": "Summary",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.summary.details"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 3,
+      "heightType": "TYPE_2",
+      "type": "REPORT",
+      "subType": "SUMMARY_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_summary_details_emc_file",
+      "definition": {
+        "widgetId": "device_summary_details_emc_file",
+        "id": "device_summary_details_emc_file",
+        "name": "Summary",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.summary.details"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 3,
+      "heightType": "TYPE_2",
+      "type": "REPORT",
+      "subType": "SUMMARY_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_summary_details_bladeserver",
+      "definition": {
+        "widgetId": "device_summary_details_bladeserver",
+        "id": "device_summary_details_bladeserver",
+        "name": "Summary",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.summary.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Blade Server",
+            "operator": "EQUALS"
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 3,
+      "heightType": "TYPE_2",
+      "type": "REPORT",
+      "subType": "SUMMARY_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "alarms_summary_by_severity",
+      "definition": {
+        "widgetId": "alarms_summary_by_severity",
+        "id": "donut_summary_chart_without_action_and_smallsegment_grouping",
+        "name": "Alarms By Severity",
+        "icon": "assets/img/chart_icons/alert.png",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.alarms.count"
+        },
+        "attributes": [
+          {
+            "key": "chartProperties",
+            "value": {
+              "chartId": "donut_summary_chart_without_action_and_smallsegment_grouping",
+              "size": {
+                "height": "400px",
+                "iconSize": {
+                  "width": "35px",
+                  "height": "35px"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "criteria": {
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 3,
+      "heightType": "TYPE_2",
+      "type": "CHART",
+      "subType": "DONUT_SUMMARY_CHART",
+      "priority": 10
+    },
+    {
+      "id": "storage_utilization_trending",
+      "definition": {
+        "widgetId": "storage_utilization_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Storage Utilization Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_STORAGE_UTILIZATION",
+          "contextInfo": {
+            "contextIdList": []
+          }
+        }
+      },
+      "criteria": {
+        "operator": "OR",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "HP",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Pure Storage",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "storage_iops_trending",
+      "definition": {
+        "widgetId": "storage_iops_trending",
+        "id": "adaptive_line_chart_iops",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Storage IOPS Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_STORAGE_IOPS",
+          "contextInfo": {
+            "contextIdList": []
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Storage",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "vendor",
+            "value": "Pure Storage",
+            "operator": "EQUALS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "storage_latency_trending",
+      "definition": {
+        "widgetId": "storage_latency_trending",
+        "id": "adaptive_line_chart_latency",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Storage Latency Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_STORAGE_LATENCY",
+          "contextInfo": {
+            "contextIdList": []
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Storage",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "vendor",
+            "value": "Pure Storage",
+            "operator": "EQUALS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "storage_bandwidth_trending",
+      "definition": {
+        "widgetId": "storage_bandwidth_trending",
+        "id": "adaptive_line_chart_bandwidth",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Storage Bandwidth Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_STORAGE_BANDWIDTH",
+          "contextInfo": {
+            "contextIdList": []
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Storage",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "vendor",
+            "value": "Pure Storage",
+            "operator": "EQUALS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "cpu_usage_trending",
+      "definition": {
+        "widgetId": "cpu_usage_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "CPU Usage Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_CPU_UTILIZATION",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-cpu"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualMachine",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Hypervisor",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "NOT_EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 7
+    },
+    {
+      "id": "cpu_usage_trending_host",
+      "definition": {
+        "widgetId": "cpu_usage_trending_host",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "CPU Usage Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_CPU_UTILIZATION_HOST",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-cpu"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 8
+    },
+    {
+      "id": "memory_usage_trending_host",
+      "definition": {
+        "widgetId": "memory_usage_trending_host",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Memory Usage Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_MEMORY_UTILIZATION_HOST",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-cpu"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 6
+    },
+    {
+      "id": "cpu_usage_trending_vm_hypervisor",
+      "definition": {
+        "widgetId": "cpu_usage_trending_vm_hypervisor",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "CPU Usage Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_CPU_UTILIZATION_VM_HYPERVISOR"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "VirtualMachine",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Hypervisor",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 8
+    },
+    {
+      "id": "memory_usage_trending",
+      "definition": {
+        "widgetId": "memory_usage_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Memory Usage Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_PHYSICALMEMORY_UTILIZATION",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-memory"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "NOT_EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 6
+    },
+    {
+      "id": "availability_trending",
+      "definition": {
+        "widgetId": "availability_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Availability Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_AVAILABILITY_AVAILABILITY"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "operator": "OR",
+                "conditions": [
+                  {
+                    "key": "vendor",
+                    "value": "HP",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "family",
+                    "value": "Storage",
+                    "operator": "NOT_EQUALS"
+                  }
+                ]
+              },
+              {
+                "key": "vendor",
+                "value": "Pure Storage",
+                "operator": "NOT_EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "reachability_trending",
+      "definition": {
+        "widgetId": "reachability_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Reachability Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_REACHABILITY_REACHABILITY"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 9
+    },
+    {
+      "id": "host_service_details",
+      "definition": {
+        "widgetId": "host_service_details",
+        "id": "host_service_details",
+        "name": "Host Services",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.host.service.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "host_process_details",
+      "definition": {
+        "widgetId": "host_process_details",
+        "id": "host_process_details",
+        "name": "Host Processes",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.host.process.details"
+        }
+      },
+      "criteria": {
+        "operator": "OR",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "os-type",
+                "value": "Linux",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "discovered-protocols",
+                "value": "SNMP",
+                "operator": "CONTAINS"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "os-type",
+                "value": "AIX",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "discovered-protocols",
+                "value": "SNMP",
+                "operator": "CONTAINS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "host_service_details_win_snmp",
+      "definition": {
+        "widgetId": "host_service_details_win_snmp",
+        "id": "host_service_details_win_snmp",
+        "name": "Host Services",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.host.service.win.snmp.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Windows",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "SNMP",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 5
+    },
+    {
+      "id": "host_service_ntp_drift_trending",
+      "definition": {
+        "widgetId": "host_service_ntp_drift_trending",
+        "id": "adaptive_line_chart_milliseconds",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "NTP Drift Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.HOST_SERVICE_NTP_DRIFT",
+          "reportContext": {
+            "contextIdList": []
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "discovered-protocols",
+                "value": "HOST_POLLING",
+                "operator": "CONTAINS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 3
+    },
+    {
+      "id": "host_service_top_process_trending",
+      "definition": {
+        "widgetId": "host_service_top_process_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Top %CPU Processes",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.HOST_TOP_PROCESSES",
+          "reportContext": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "host-process"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Linux",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 1
+    },
+    {
+      "id": "host_service_top_load_average_trending",
+      "definition": {
+        "widgetId": "host_service_top_load_average_trending",
+        "id": "adaptive_line_chart_count",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Host Load Average",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.HOST_TOP_LOAD_AVERAGE"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Linux",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 8
+    },
+    {
+      "id": "host_service_top_swap_trending",
+      "definition": {
+        "widgetId": "host_service_top_swap_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Swap Usage Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.HOST_TOP_SWAP"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Linux",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 5
+    },
+    {
+      "id": "host_service_nfs_client_activity_trending",
+      "definition": {
+        "widgetId": "host_service_nfs_client_activity_trending",
+        "id": "adaptive_line_chart_count",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "NFS Client Activity Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.HOST_NFS_CLIENT_ACTIVITY_DIFFERENCE"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Linux",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 2
+    },
+    {
+      "id": "device_interface_details",
+      "definition": {
+        "widgetId": "device_interface_details",
+        "id": "device_interface_details",
+        "name": "Interfaces",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.interface.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualMachine",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Hypervisor",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "operator": "AND",
+                "conditions": [
+                  {
+                    "key": "os-type",
+                    "value": "Windows",
+                    "operator": "NOT_EQUALS"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_ip_sla_details",
+      "definition": {
+        "widgetId": "device_ip_sla_details",
+        "id": "device_ip_sla_details",
+        "name": "IP SLA Configuration",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.ipsla.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Switch",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Router",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Firewall",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "vendor",
+                "value": "Cisco",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_storage_controller_details",
+      "definition": {
+        "widgetId": "device_storage_controller_details",
+        "id": "device_storage_controller_details",
+        "name": "Storage Controllers",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.storage.controller.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Storage",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "vendor",
+            "value": "Pure Storage",
+            "operator": "EQUALS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_storage_drive_details",
+      "definition": {
+        "widgetId": "device_storage_drive_details",
+        "id": "device_storage_drive_details",
+        "name": "Storage Drives",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.storage.drive.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Storage",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "vendor",
+            "value": "Pure Storage",
+            "operator": "EQUALS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_storage_volume_details",
+      "definition": {
+        "widgetId": "device_storage_volume_details",
+        "id": "device_storage_volume_details",
+        "name": "Storage Volumes",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.storage.volume.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Storage",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "vendor",
+            "value": "Pure Storage",
+            "operator": "EQUALS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_cpg_details",
+      "definition": {
+        "widgetId": "device_cpg_details",
+        "id": "device_cpg_details",
+        "name": "Common Provisioning Groups",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.cpg.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Storage",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "vendor",
+            "value": "HP",
+            "operator": "EQUALS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_storage_port_details",
+      "definition": {
+        "widgetId": "device_storage_port_details",
+        "id": "device_storage_port_details",
+        "name": "Storage Ports",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.port.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Storage",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "vendor",
+            "value": "HP",
+            "operator": "EQUALS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_entity_details",
+      "definition": {
+        "widgetId": "device_entity_details",
+        "id": "device_entity_details",
+        "name": "Entities",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.interface.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualMachine",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Hypervisor",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Load Balancer",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "operator": "AND",
+                "conditions": [
+                  {
+                    "key": "vendor",
+                    "value": "Cisco",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "model",
+                    "value": "N9K-",
+                    "operator": "NOT_CONTAINS"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "vendor",
+                "value": "Cisco",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Brocade",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "PAN",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_license_details",
+      "definition": {
+        "widgetId": "device_license_details",
+        "id": "device_license_details",
+        "name": "License Details",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.interface.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualMachine",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Hypervisor",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Load Balancer",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Cisco",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_cdp_neighbours",
+      "definition": {
+        "widgetId": "device_cdp_neighbours",
+        "id": "device_cdp_neighbours",
+        "name": "CDP Neighbours",
+        "type": "REPORT",
+        "contexts": {}
+      },
+      "criteria": {
+        "conditions": [
+          {
+            "conditions": [
+              {
+                "key": "vendor",
+                "value": "Cisco",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_interface_details_hypervisor",
+      "definition": {
+        "widgetId": "device_interface_details_hypervisor",
+        "id": "device_interface_details_hypervisor",
+        "name": "Interfaces",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.interface.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              }
+            ]
+          },
+          {
+            "key": "family",
+            "value": "Hypervisor",
+            "operator": "EQUALS"
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_interface_details_vm",
+      "definition": {
+        "widgetId": "device_interface_details_vm",
+        "id": "device_interface_details_vm",
+        "name": "Interfaces",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.interface.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              }
+            ]
+          },
+          {
+            "key": "family",
+            "value": "VirtualMachine",
+            "operator": "EQUALS"
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_2",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_interface_details_bladeserver",
+      "definition": {
+        "widgetId": "device_interface_details_bladeserver",
+        "id": "device_interface_details_bladeserver",
+        "name": "Interfaces",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.interface.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Blade Server",
+            "operator": "EQUALS"
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_alarms_details",
+      "definition": {
+        "widgetId": "device_alarms_details",
+        "id": "device_alarms_details",
+        "name": "Active Alarms",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.alarms.details"
+        }
+      },
+      "criteria": {
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "APPLICATION",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 2
+    },
+    {
+      "id": "device_alarms_history",
+      "definition": {
+        "widgetId": "device_alarms_history",
+        "id": "device_alarms_history",
+        "name": "Cleared Alarms",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.alarms.history"
+        }
+      },
+      "criteria": {
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "APPLICATION",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 1
+    },
+    {
+      "id": "motherboard_input_current",
+      "definition": {
+        "widgetId": "motherboard_input_current",
+        "id": "adaptive_line_chart_amps",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "MotherBoard Input Current Received",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.MOTHERBOARD_INPUT_CURRENT"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "motherboard_consumed_power",
+      "definition": {
+        "widgetId": "motherboard_consumed_power",
+        "id": "adaptive_line_chart_watts",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "MotherBoard Consumed Power",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.MOTHERBOARD_CONSUMED_POWER"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "motherboard_input_voltage",
+      "definition": {
+        "widgetId": "motherboard_input_voltage",
+        "id": "adaptive_line_chart_volts",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "MotherBoard Input Voltage Received",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.MOTHERBOARD_INPUT_VOLTAGE"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "motherboard_sens_io_temperature",
+      "definition": {
+        "widgetId": "motherboard_sens_io_temperature",
+        "id": "adaptive_line_chart_celsius",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "MotherBoard Sens IO Temperature",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.MOTHERBOARD_SENS_IO_TEMPERATURE"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "motherboard_sens_rear_temperature",
+      "definition": {
+        "widgetId": "motherboard_sens_rear_temperature",
+        "id": "adaptive_line_chart_celsius",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "MotherBoard Sens Rear Temperature",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.MOTHERBOARD_SENS_REAR_TEMPERATURE"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "memory_unit_temperature",
+      "definition": {
+        "widgetId": "memory_unit_temperature",
+        "id": "adaptive_line_chart_celsius",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Memory Unit Temperature",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.MEMORY_UNIT_TEMPERATURE"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "processor_unit_temperature",
+      "definition": {
+        "widgetId": "processor_unit_temperature",
+        "id": "adaptive_line_chart_celsius",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Processor Unit Temperature",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.PROCESSOR_UNIT_TEMPERATURE"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "processor_unit_current",
+      "definition": {
+        "widgetId": "processor_unit_current",
+        "id": "adaptive_line_chart_amps",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Processor Unit Current",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.PROCESSOR_UNIT_CURRENT"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "network_in_usage_trending_vm_hypervisor",
+      "definition": {
+        "widgetId": "network_in_usage_trending_vm_hypervisor",
+        "id": "adaptive_line_chart_bps",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Network In (Bytes) Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_NETWORK_IN_UTILIZATION_VM_HYPERVISOR"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "network_out_usage_trending_vm_hypervisor",
+      "definition": {
+        "widgetId": "network_out_usage_trending_vm_hypervisor",
+        "id": "adaptive_line_chart_bps",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Network Out (Bytes) Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_NETWORK_OUT_UTILIZATION_VM_HYPERVISOR"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "disk_read_usage_trending_vm_hypervisor",
+      "definition": {
+        "widgetId": "disk_read_usage_trending_vm_hypervisor",
+        "id": "adaptive_line_chart_bps",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Disk Reads (Bytes) In Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_DISK_READ_UTILIZATION_VM_HYPERVISOR"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "disk_write_usage_trending_vm_hypervisor",
+      "definition": {
+        "widgetId": "disk_write_usage_trending_vm_hypervisor",
+        "id": "adaptive_line_chart_bps",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Disk Write (Bytes) Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_DISK_WRITE_UTILIZATION_VM_HYPERVISOR"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 10
+    },
+    {
+      "id": "aws_instance_interface_details",
+      "definition": {
+        "widgetId": "aws_instance_interface_details",
+        "id": "aws_instance_interface_details",
+        "name": "Network Interfaces",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.interface.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "disk_usage_trending",
+      "definition": {
+        "widgetId": "disk_usage_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Disk Usage Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_DISK_UTILIZATION",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-disk-partition"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "OR",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "operator": "AND",
+                "conditions": [
+                  {
+                    "key": "family",
+                    "value": "ICMP",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "family",
+                    "value": "Host",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "family",
+                    "value": "VirtualInfrastructureController",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "family",
+                    "value": "VirtualMachine",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "family",
+                    "value": "Hypervisor",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "family",
+                    "value": "Blade Server",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "family",
+                    "value": "EC2 Instance",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "vendor",
+                    "value": "Sonic",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "vendor",
+                    "value": "PAN",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "family",
+                    "value": "Storage",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "vendor",
+                    "value": "Juniper",
+                    "operator": "NOT_EQUALS"
+                  },
+                  {
+                    "key": "os-type",
+                    "value": "Cisco ASA",
+                    "operator": "NOT_EQUALS"
+                  }
+                ]
+              },
+              {
+                "operator": "OR",
+                "conditions": [
+                  {
+                    "key": "assetType",
+                    "value": "INFRA_ACCOUNT",
+                    "operator": "EQUALS"
+                  },
+                  {
+                    "key": "assetType",
+                    "value": "HOST",
+                    "operator": "EQUALS"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "os-type",
+                "value": "Windows",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "discovered-protocols",
+                "value": "SNMP",
+                "operator": "CONTAINS"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "os-type",
+                "value": "Linux",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "discovered-protocols",
+                "value": "SNMP",
+                "operator": "CONTAINS"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "os-type",
+                "value": "AIX",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "discovered-protocols",
+                "value": "SNMP",
+                "operator": "CONTAINS"
+              }
+            ]
+          },
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "os-type",
+                "value": "Solaris",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "discovered-protocols",
+                "value": "SNMP",
+                "operator": "CONTAINS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 1
+    },
+    {
+      "id": "disk_usage_trending_host_winrm",
+      "definition": {
+        "widgetId": "disk_usage_trending_host_winrm",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Disk Usage Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_DISK_UTILIZATION_HOST",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-disk"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "discovered-protocols",
+                "value": "HOST_POLLING",
+                "operator": "CONTAINS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 3
+    },
+    {
+      "id": "disk_input_trending",
+      "definition": {
+        "widgetId": "disk_input_trending",
+        "id": "adaptive_line_chart_bps",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Disk Input Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_DISK_INPUT_BYTES_DELTA",
+          "reportContext": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-disk-partition"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Linux",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 1
+    },
+    {
+      "id": "disk_output_trending",
+      "definition": {
+        "widgetId": "disk_output_trending",
+        "id": "adaptive_line_chart_bps",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Disk Output Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_DISK_OUTPUT_BYTES_DELTA",
+          "reportContext": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-disk-partition"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Linux",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 1
+    },
+    {
+      "id": "fan_status_trending",
+      "definition": {
+        "widgetId": "fan_status_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Fan Status Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_FAN_STATUS_MONITORING",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "fan"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualMachine",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Hypervisor",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Sonic",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Load Balancer",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "PAN",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Fortinet",
+                "operator": "NOT_EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 4
+    },
+    {
+      "id": "fan_status_trending_pan",
+      "definition": {
+        "widgetId": "fan_status_trending_pan",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Fan Status Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_FAN_STATUS_MONITORING_PAN",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "sensor"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Firewall",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "PAN",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 4
+    },
+    {
+      "id": "temperature_status_trending",
+      "definition": {
+        "widgetId": "temperature_status_trending",
+        "id": "adaptive_line_chart_celsius",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Temperature Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_DEVICE_TEMPERATURE_STATUS_MONITORING",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "sensor"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualMachine",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Hypervisor",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Sonic",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Load Balancer",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Fortinet",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "model",
+                "value": "N9K-",
+                "operator": "NOT_CONTAINS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 5
+    },
+    {
+      "id": "device_temperature_component_details",
+      "definition": {
+        "widgetId": "device_temperature_component_details",
+        "id": "device_temperature_component_details",
+        "name": "Temperature Report",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.temperature.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "vendor",
+            "value": "Cisco",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "model",
+            "value": "N9K-",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 15
+    },
+    {
+      "id": "power_supply_status_trending",
+      "definition": {
+        "widgetId": "power_supply_status_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "PowerSupply Status Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_DEVICE_POWER_SUPPLY_STATUS_MONITORING",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "power-supply"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "ICMP",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Host",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualInfrastructureController",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "VirtualMachine",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Hypervisor",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Blade Server",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "EC2 Instance",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Sonic",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "PAN",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Load Balancer",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Fortinet",
+                "operator": "NOT_EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 3
+    },
+    {
+      "id": "application_component_details",
+      "definition": {
+        "widgetId": "application_component_details",
+        "id": "application_component_details",
+        "name": "End Points",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.application.endpoint.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Web Application",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "APPLICATION",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "netapp_node_details",
+      "definition": {
+        "widgetId": "netapp_node_details",
+        "id": "netapp_node_details",
+        "name": "Nodes",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.node.component.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "NetApp",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "netapp_system_cpu_usage_trending",
+      "definition": {
+        "widgetId": "netapp_system_cpu_usage_trending",
+        "id": "trending_chart",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "CPU Utilization",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.NETAPP_SYSTEM_CPU_UTILIZATION",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-cpu"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "Pure Storage",
+                "operator": "NOT_EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "HP",
+                "operator": "NOT_EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 8
+    },
+    {
+      "id": "netapp_port_details",
+      "definition": {
+        "widgetId": "netapp_port_details",
+        "id": "netapp_port_details",
+        "name": "Ports",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.netapp.port.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "family",
+                "value": "Storage",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "vendor",
+                "value": "NetApp",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "device_disk_component_details",
+      "definition": {
+        "widgetId": "device_disk_component_details",
+        "id": "device_disk_component_details",
+        "name": "Disks",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.disk.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "vendor",
+                "value": "Juniper",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              },
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "emc_block_lun_tabular_report",
+      "definition": {
+        "widgetId": "emc_block_lun_tabular_report",
+        "id": "emc_block_lun_tabular_report",
+        "name": "LUNs",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.block.luns"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 7
+    },
+    {
+      "id": "emc_block_storage_pool_tabular_report",
+      "definition": {
+        "widgetId": "emc_block_storage_pool_tabular_report",
+        "id": "emc_block_storage_pool_tabular_report",
+        "name": "Storage Pools",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.storage.pools"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 9
+    },
+    {
+      "id": "emc_block_sg_tabular_report",
+      "definition": {
+        "widgetId": "emc_block_sg_tabular_report",
+        "id": "emc_block_sg_tabular_report",
+        "name": "Storage Groups",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.block.sgs"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 4
+    },
+    {
+      "id": "emc_block_disk_tabular_report",
+      "definition": {
+        "widgetId": "emc_block_disk_tabular_report",
+        "id": "emc_block_disk_tabular_report",
+        "name": "Disks",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.block.disks"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 6
+    },
+    {
+      "id": "emc_block_sp_tabular_report",
+      "definition": {
+        "widgetId": "emc_block_sp_tabular_report",
+        "id": "emc_block_sp_tabular_report",
+        "name": "Storage Processors",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.block.sps"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "emc_block_sp_port_tabular_report",
+      "definition": {
+        "widgetId": "emc_block_sp_port_tabular_report",
+        "id": "emc_block_sp_port_tabular_report",
+        "name": "Storage Processor Ports",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.block.sp.ports"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 5
+    },
+    {
+      "id": "emc_block_raid_group_tabular_report",
+      "definition": {
+        "widgetId": "emc_block_raid_group_tabular_report",
+        "id": "emc_block_raid_group_tabular_report",
+        "name": "Raid Groups",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.block.raid.groups"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 8
+    },
+    {
+      "id": "emc_file_system_tabular_report",
+      "definition": {
+        "widgetId": "emc_file_system_tabular_report",
+        "id": "emc_file_system_tabular_report",
+        "name": "File System",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.file.system"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 8
+    },
+    {
+      "id": "emc_file_volume_tabular_report",
+      "definition": {
+        "widgetId": "emc_file_volume_tabular_report",
+        "id": "emc_file_volume_tabular_report",
+        "name": "File Volumes",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.file.volume"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 6
+    },
+    {
+      "id": "emc_file_storage_pool_tabular_report",
+      "definition": {
+        "widgetId": "emc_file_storage_pool_tabular_report",
+        "id": "emc_file_storage_pool_tabular_report",
+        "name": "Storage Pools",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.file.storagepool"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 7
+    },
+    {
+      "id": "emc_file_mover_tabular_report",
+      "definition": {
+        "widgetId": "emc_file_mover_tabular_report",
+        "id": "emc_file_mover_tabular_report",
+        "name": "Movers",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.file.movers"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "emc_file_mover_port_tabular_report",
+      "definition": {
+        "widgetId": "emc_file_mover_port_tabular_report",
+        "id": "emc_file_mover_port_tabular_report",
+        "name": "Ports",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.emc.file.mover.ports"
+        }
+      },
+      "criteria": {
+        "isProfileBasedComponent": true
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 9
+    },
+    {
+      "id": "device_active_session_trending",
+      "definition": {
+        "widgetId": "device_active_session_trending",
+        "id": "adaptive_line_chart_count",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Active Session Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_ACTIVE_SESSION_UTILIZATION",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-firewall-sessions"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "vendor",
+                "value": "Fortinet",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 8
+    },
+    {
+      "id": "device_intrution_detection_trending",
+      "definition": {
+        "widgetId": "device_intrution_detection_trending",
+        "id": "adaptive_line_chart_count",
+        "widgetType": "TIMESERIES_LINE_CHART",
+        "name": "Intrusion Detection Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.QOS_INTRUTION_DETECTION_UTILIZATION",
+          "contextInfo": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "device-utm"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "vendor",
+                "value": "Fortinet",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "INFRA_ACCOUNT",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 8
+    },
+    {
+      "id": "component_usage_by_region-top_10_Most_CPU_Usage",
+      "definition": {
+        "widgetId": "component_usage_by_region-top_10_Most_CPU_Usage",
+        "id": "component_usage_by_region",
+        "name": "Top 10 CPU% Processes",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "QOS_HOST_TOP_PROCESS_CPU_UTILIZATION",
+          "contextInfo": {
+            "contextIdList": []
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Linux",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 5
+    },
+    {
+      "id": "component_usage_by_region-top_10_Most_MEMORY_Usage",
+      "definition": {
+        "widgetId": "component_usage_by_region-top_10_Most_MEMORY_Usage",
+        "id": "component_usage_by_region",
+        "name": "Top 10 Memory% Processes",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "QOS_HOST_TOP_PROCESS_MEMORY_UTILIZATION",
+          "contextInfo": {
+            "contextIdList": []
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Linux",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 4
+    },
+    {
+      "id": "host_process_details_ssh",
+      "definition": {
+        "widgetId": "host_process_details_ssh",
+        "id": "host_process_details_ssh",
+        "name": "Top Processes",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.host.top.process.details_ssh",
+          "reportContext": {
+            "contextIdList": [
+              {
+                "name": "componentType",
+                "value": "host-process"
+              }
+            ]
+          }
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "key": "family",
+            "value": "Host",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "os-type",
+            "value": "Linux",
+            "operator": "EQUALS"
+          },
+          {
+            "key": "discovered-protocols",
+            "value": "HOST_POLLING",
+            "operator": "CONTAINS"
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 4
+    },
+    {
+      "id": "device_interface_details_host_windows",
+      "definition": {
+        "widgetId": "device_interface_details_host_windows",
+        "id": "device_interface_details_host_windows",
+        "name": "Interfaces",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.interface.details.host.windows"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "os-type",
+                "value": "Windows",
+                "operator": "EQUALS"
+              }
+            ]
+          },
+          {
+            "operator": "OR",
+            "conditions": [
+              {
+                "key": "assetType",
+                "value": "HOST",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "nokia_bgp_peer_ng_component_details",
+      "definition": {
+        "widgetId": "nokia_bgp_peer_ng_component_details",
+        "id": "nokia_bgp_peer_ng_component_details",
+        "name": "BGP Peer NG ",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.bgp.peer.ng.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "os-type",
+                "value": "SR OS",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    },
+    {
+      "id": "nokia_vrtr_status_trending",
+      "definition": {
+        "widgetId": "nokia_vrtr_status_trending",
+        "id": "trending_chart",
+        "name": "Virtual Router Status Trending",
+        "type": "CHART",
+        "contexts": {
+          "reportId": "com.cfx.device.qos.trend.NOKIA_VRTR_STATUS_TRENDING"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "os-type",
+                "value": "SR OS",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_3",
+      "type": "CHART",
+      "subType": "TREND_CHART",
+      "priority": 4
+    },
+    {
+      "id": "nokia_virtual_router_interfaces_details",
+      "definition": {
+        "widgetId": "nokia_virtual_router_interfaces_details",
+        "id": "nokia_virtual_router_interfaces_details",
+        "name": "Virtual Interfaces",
+        "type": "REPORT",
+        "contexts": {
+          "reportId": "com.cfx.device.virtual.interfaces.details"
+        }
+      },
+      "criteria": {
+        "operator": "AND",
+        "conditions": [
+          {
+            "operator": "AND",
+            "conditions": [
+              {
+                "key": "os-type",
+                "value": "SR OS",
+                "operator": "EQUALS"
+              }
+            ]
+          }
+        ]
+      },
+      "rowSpan": 4,
+      "heightType": "TYPE_4",
+      "type": "REPORT",
+      "subType": "GENERAL_REPORT",
+      "priority": 10
+    }
+  ],
+  "componentOrder": [
+    "SUMMARY_REPORT",
+    "DONUT_SUMMARY_CHART",
+    "DONUT_CHART",
+    "TREND_CHART",
+    "GENERAL_REPORT",
+    "OTHERS"
+  ],
+  "colspans": [
+    {
+      "subType": "GENERAL_REPORT",
+      "colspan": {
+        "lg": 12,
+        "md": 12,
+        "sm": 12,
+        "xs": 12
+      }
+    },
+    {
+      "subType": "OTHERS",
+      "colspan": {
+        "lg": 12,
+        "md": 12,
+        "sm": 12,
+        "xs": 12
+      }
+    },
+    {
+      "subType": "SUMMARY_REPORT",
+      "colspan": {
+        "lg": 8,
+        "md": 8,
+        "sm": 12,
+        "xs": 12
+      }
+    },
+    {
+      "subType": "DONUT_SUMMARY_CHART",
+      "colspan": {
+        "lg": 4,
+        "md": 4,
+        "sm": 12,
+        "xs": 12
+      }
+    },
+    {
+      "subType": "DONUT_CHART",
+      "ODD": {
+        "lg": 12,
+        "md": 12,
+        "sm": 12,
+        "xs": 12
+      },
+      "EVEN": {
+        "lg": 6,
+        "md": 6,
+        "sm": 12,
+        "xs": 12
+      }
+    },
+    {
+      "subType": "TREND_CHART",
+      "ODD": {
+        "lg": 12,
+        "md": 12,
+        "sm": 12,
+        "xs": 12
+      },
+      "EVEN": {
+        "lg": 6,
+        "md": 6,
+        "sm": 12,
+        "xs": 12
+      }
+    }
+  ]
+}

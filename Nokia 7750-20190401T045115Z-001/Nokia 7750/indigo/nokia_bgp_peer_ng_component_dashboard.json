@@ -1,0 +1,112 @@
+{
+  "id": "nokia_bgp_peer_ng_component_dashboard",
+  "user_role": "PlatformAdmin",
+  "label": "Dashboard",
+  "hasTimeFilterableData": true,
+  "input_params": {},
+  "attributes": [
+    {
+      "key": "type",
+      "value": "custom_dashboard"
+    }
+  ],
+  "totalColumns-lg": 12,
+  "totalColumns-md": 12,
+  "totalColumns-sm": 12,
+  "totalColumns-xs": 12,
+  "rowLayout": "fixed_height",
+  "rows": [
+    {
+      "rowIndex": 0,
+      "columns": [
+        {
+          "componentId": "nokia_bgp_peer_ng_component_summary_details",
+          "type": "REPORT"
+        }
+      ]
+    },
+    {
+      "rowIndex": 1,
+      "columns": [
+        {
+          "componentId": "nokia_bgp_peer_ng_trending",
+          "type": "CHART"
+        }
+      ]
+    },
+    {
+      "rowIndex": 2,
+      "columns": [
+        {
+          "componentId": "interface_alarms_details",
+          "rowSpan": 4,
+          "colSpan": {
+            "lg": 12,
+            "md": 12,
+            "sm": 12,
+            "xs": 12
+          },
+          "type": "REPORT",
+          "heightType": "TYPE_4"
+        }
+      ]
+    },
+    {
+      "rowIndex": 3,
+      "columns": [
+        {
+          "componentId": "interface_alarms_history",
+          "rowSpan": 4,
+          "colSpan": {
+            "lg": 12,
+            "md": 12,
+            "sm": 12,
+            "xs": 12
+          },
+          "type": "REPORT",
+          "heightType": "TYPE_4"
+        }
+      ]
+    }
+  ],
+  "components": [
+    {
+      "widgetType": "SummaryTable",
+      "widgetId": "nokia_bgp_peer_ng_component_summary_details",
+      "id": "nokia_bgp_peer_ng_component_summary_details",
+      "name": "Summary",
+      "type": "REPORT",
+      "contexts": {
+        "reportId": "com.cfx.device.interface.summary.details"
+      }
+    },
+    {
+      "widgetType": "TimeseriesLineChart",
+      "widgetId": "nokia_bgp_peer_ng_trending",
+      "id": "trending_chart",
+      "name": "BGP Peer NG Trending",
+      "type": "CHART",
+      "contexts": {
+        "reportId": "com.cfx.device.qos.trend.NOKIA_BGP_PEER_NG_MONITORING"
+      }
+    },
+    {
+      "widgetId": "interface_alarms_details",
+      "id": "device_alarms_details",
+      "name": "Active Alarms",
+      "type": "REPORT",
+      "contexts": {
+        "reportId": "com.cfx.device.interface.alarm.details"
+      }
+    },
+    {
+      "widgetId": "interface_alarms_history",
+      "id": "device_alarms_history",
+      "name": "Cleared Alarms",
+      "type": "REPORT",
+      "contexts": {
+        "reportId": "com.cfx.device.interface.alarm.history"
+      }
+    }
+  ]
+}
