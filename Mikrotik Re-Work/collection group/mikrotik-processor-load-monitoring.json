@@ -1,0 +1,56 @@
+{
+  "name": "io.macaw.feature.mikrotik.ccr.processorload.monitoring",
+  "sourceMechanism": "SNMP",
+  "collection-target": {
+    "service-name": "generic-snmp-service",
+    "service-namespace": "io.macaw.services",
+    "target-api": "getFeature",
+    "argTypes": [
+      "java.lang.String",
+      "java.lang.String",
+      "java.lang.String",
+      "io.macaw.snmp.DeviceKey",
+      "java.lang.String",
+      "[Ljava.util.Map;",
+      "java.util.Map"
+    ],
+    "args": [
+      "__ENV_ID__",
+      "__DEVICE_TARGET__",
+      "__CREDENTIAL_ID__",
+      "__DEVICE_PACKAGE_KEY__",
+      "ProcessorLoad",
+      "__INDEXES__",
+      "__PROPERTY_MAP__"
+    ],
+    "is-component": true,
+	"component-type": "device-processor",
+    "component-label-field": "componentLabel",
+	"fqn-fields": [
+        {
+          "componentLabel": "physicalEntity"
+        }
+    ]
+  },
+  "data-handlers": [
+    {
+      "id": "io.macaw.feature.mikrotik.ccr.processorload.monitoring.metric.status",
+      "post-collection-type": "custom-script",
+	  "post-collection-handler": "mikrotik_processorload.js",
+      "table-bindings": {
+        "database-name": "MetricFamily",
+        "measurement": "metric",
+        "field-bindings": [
+          {
+            "processorLoad": "metricValue"
+          }
+        ],
+        "tag-bindings": [
+          {
+            "metricName": "metricName"
+          }
+        ]
+      }
+    }
+  ]
+}

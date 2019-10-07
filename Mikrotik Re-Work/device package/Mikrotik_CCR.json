@@ -1,0 +1,325 @@
+{
+	"device-key": [{
+		"vendor": "Mikrotik",
+		"osType": "RouterOS",
+		"model": "CCR1036",
+		"family": "Router",
+		"version": "*"
+	}],
+	"feature-entities": {
+		"MemoryInventory": {
+			"entityType": "VECTOR",
+			"properties": [],
+			"queries": [{
+				"name": "Memory",
+				"queryType": "TABLE",
+				"fields": [
+					{
+						"description": "A unique value for each logical storage area contained by the host",
+						"name": "index",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.1",
+						"type": "int32"
+					},
+					{
+						"description": " The type of storage represented by this entry.",
+						"name": "hrStorageType",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.2",
+						"type": "int32"
+					},
+					{
+						"description": "A description of the type and instance of the storage described by this entry.",
+						"name": "hrStorageDescr",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.3",
+						"type": "int32"
+					},
+					{
+						"description": "The size, in bytes, of the data objects allocated from this pool.  If this entry is monitoring sectors, blocks, buffers, or packets, for example, this number will commonly be greater than one. Otherwise this number will typically be one.",
+						"name": "hrStorageAllocated",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.4",
+						"type": "int32"
+					},
+					{
+						"description": "The size of the storage represented by this entry, in units of hrStorageAllocationUnits.",
+						"name": "hrStorageSize",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.5",
+						"type": "int32"
+					},
+					{
+						"description": "The amount of the storage represented by this entry that is allocated, in units of hrStorageAllocationUnits.",
+						"name": "hrStorageUsed",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.6",
+						"type": "int32"
+					},
+					{
+						"description": "This value indicates the RFU transmit Level Status",
+						"name": "hrStorageAllocationFailure",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.7",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Mikrotik-Memory.js"
+			}
+		},
+		"MemoryMonitoring": {
+			"entityType": "VECTOR",
+			"properties": [],
+			"queries": [{
+				"name": "Memory",
+				"queryType": "TABLE",
+				"fields": [
+					{
+						"description": "A unique value for each logical storage area contained by the host",
+						"name": "index",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.1",
+						"type": "int32"
+					},
+					{
+						"description": " The type of storage represented by this entry.",
+						"name": "hrStorageType",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.2",
+						"type": "int32"
+					},
+					{
+						"description": "A description of the type and instance of the storage described by this entry.",
+						"name": "hrStorageDescr",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.3",
+						"type": "int32"
+					},
+					{
+						"description": "The size, in bytes, of the data objects allocated from this pool.  If this entry is monitoring sectors, blocks, buffers, or packets, for example, this number will commonly be greater than one. Otherwise this number will typically be one.",
+						"name": "hrStorageAllocated",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.4",
+						"type": "int32"
+					},
+					{
+						"description": "The size of the storage represented by this entry, in units of hrStorageAllocationUnits.",
+						"name": "hrStorageSize",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.5",
+						"type": "int32"
+					},
+					{
+						"description": "The amount of the storage represented by this entry that is allocated, in units of hrStorageAllocationUnits.",
+						"name": "hrStorageUsed",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.6",
+						"type": "int32"
+					},
+					{
+						"description": "This value indicates the RFU transmit Level Status",
+						"name": "hrStorageAllocationFailure",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.7",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Mikrotik-Memory.js"
+			}
+		},		
+		"DiskInventory": {
+			"entityType": "VECTOR",
+			"properties": [],
+			"queries": [{
+				"name": "Disk",
+				"queryType": "TABLE",
+				"fields": [
+					{
+						"description": "A unique value for each logical storage area contained by the host",
+						"name": "index",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.1",
+						"type": "int32"
+					},
+					{
+						"description": " The type of storage represented by this entry.",
+						"name": "hrStorageType",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.2",
+						"type": "int32"
+					},
+					{
+						"description": "A description of the type and instance of the storage described by this entry.",
+						"name": "hrStorageDescr",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.3",
+						"type": "int32"
+					},
+					{
+						"description": "The size, in bytes, of the data objects allocated from this pool.  If this entry is monitoring sectors, blocks, buffers, or packets, for example, this number will commonly be greater than one. Otherwise this number will typically be one.",
+						"name": "hrStorageAllocated",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.4",
+						"type": "int32"
+					},
+					{
+						"description": "The size of the storage represented by this entry, in units of hrStorageAllocationUnits.",
+						"name": "hrStorageSize",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.5",
+						"type": "int32"
+					},
+					{
+						"description": "The amount of the storage represented by this entry that is allocated, in units of hrStorageAllocationUnits.",
+						"name": "hrStorageUsed",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.6",
+						"type": "int32"
+					},
+					{
+						"description": "This value indicates the RFU transmit Level Status",
+						"name": "hrStorageAllocationFailure",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.7",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Mikrotik-Disk.js"
+			}
+		},
+		"DiskMonitoring": {
+			"entityType": "VECTOR",
+			"properties": [],
+			"queries": [{
+				"name": "Disk",
+				"queryType": "TABLE",
+				"fields": [
+					{
+						"description": "A unique value for each logical storage area contained by the host",
+						"name": "index",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.1",
+						"type": "int32"
+					},
+					{
+						"description": " The type of storage represented by this entry.",
+						"name": "hrStorageType",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.2",
+						"type": "int32"
+					},
+					{
+						"description": "A description of the type and instance of the storage described by this entry.",
+						"name": "hrStorageDescr",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.3",
+						"type": "int32"
+					},
+					{
+						"description": "The size, in bytes, of the data objects allocated from this pool.  If this entry is monitoring sectors, blocks, buffers, or packets, for example, this number will commonly be greater than one. Otherwise this number will typically be one.",
+						"name": "hrStorageAllocated",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.4",
+						"type": "int32"
+					},
+					{
+						"description": "The size of the storage represented by this entry, in units of hrStorageAllocationUnits.",
+						"name": "hrStorageSize",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.5",
+						"type": "int32"
+					},
+					{
+						"description": "The amount of the storage represented by this entry that is allocated, in units of hrStorageAllocationUnits.",
+						"name": "hrStorageUsed",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.6",
+						"type": "int32"
+					},
+					{
+						"description": "This value indicates the RFU transmit Level Status",
+						"name": "hrStorageAllocationFailure",
+						"oid": ".1.3.6.1.2.1.25.2.3.1.7",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Mikrotik-Disk.js"
+			}
+		},
+		"Voltage": {
+			"entityType": "SCALAR",
+			"properties": [],
+			"queries": [{
+				"name": "Voltage",
+				"queryType": "GET",
+				"fields": [
+					{
+						"description": "Input Voltage",
+						"name": "inputVoltage",
+						"oid": ".1.3.6.1.4.1.14988.1.1.3.8.0",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Mikrotik-Voltage.js"
+			}
+		},
+		"TemperatureInventory": {
+			"entityType": "SCALAR",
+			"properties": [],
+			"queries": [{
+				"name": "Temperature",
+				"queryType": "GET",
+				"fields": [
+					{
+						"description": "Device Temperature",
+						"name": "temp",
+						"oid": ".1.3.6.1.4.1.14988.1.1.3.10.0",
+						"type": "int32"
+					},
+					{
+						"description": "Processor Temperature",
+						"name": "pstemp",
+						"oid": ".1.3.6.1.4.1.14988.1.1.3.11.0",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Mikrotik-Temperature.js"
+			}
+		},
+		"FanInventory": {
+			"entityType": "SCALAR",
+			"properties": [],
+			"queries": [{
+				"name": "Fan",
+				"queryType": "GET",
+				"fields": [
+					{
+						"description": "Fan 1 Speed",
+						"name": "fan1",
+						"oid": ".1.3.6.1.4.1.14988.1.1.3.17.0",
+						"type": "int32"
+					},
+					{
+						"description": "Fan2 Speed",
+						"name": "fan2",
+						"oid": ".1.3.6.1.4.1.14988.1.1.3.18.0",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Mikrotik-Fan.js"
+			}
+		},
+		"ProcessorLoad": {
+			"entityType": "VECTOR",
+			"properties": [],
+			"queries": [{
+				"name": "ProcessorLoad",
+				"queryType": "TABLE",
+				"fields": [
+					{
+						"description": "Hr Processor Tables ",
+						"name": "hrProcessorFrwID",
+						"oid": ".1.3.6.1.2.1.25.3.3.1.1",
+						"type": "int32"
+					},
+					{
+						"description": "Hr Processor Load ",
+						"name": "hrProcessorLoad",
+						"oid": ".1.3.6.1.2.1.25.3.3.1.2",
+						"type": "int32"
+					}
+				]
+			}],
+			"computation": {
+				"scriptName": "Mikrotik-ProcessorLoad.js"
+			}
+		}
+	}
+}

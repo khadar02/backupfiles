@@ -1,0 +1,424 @@
+{
+  "device-key": [
+    {
+      "vendor": "Hewlett-Packard",
+      "model": "*",
+      "osType": "*",
+      "version": "*"
+    }
+  ],
+  "feature-entities": {
+    "InterfaceInventory": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "ifEntry",
+          "queryType": "TABLE",
+          "useSelectiveIndex": false,
+          "fields": [
+            {
+              "type": "int32",
+              "description": "A unique value for each interface.  Its value ranges between 1 and the value of ifNumber.",
+              "oid": ".1.3.6.1.2.1.2.2.1.1",
+              "name": "ifIndex"
+            },
+            {
+              "type": "string",
+              "description": "A textual string containing information about the interface.",
+              "oid": ".1.3.6.1.2.1.2.2.1.2",
+              "name": "ifDescr"
+            },
+            {
+              "type": "int64",
+              "description": "The type of interface.",
+              "oid": ".1.3.6.1.2.1.2.2.1.3",
+              "name": "ifType"
+            },
+            {
+              "type": "int64",
+              "description": "interface MTU",
+              "oid": ".1.3.6.1.2.1.2.2.1.4",
+              "name": "ifMtu"
+            },
+            {
+              "type": "int64",
+              "description": "An estimate of the interface's current bandwidth in bits per second.",
+              "oid": ".1.3.6.1.2.1.2.2.1.5",
+              "name": "ifSpeed"
+            },
+            {
+              "type": "int64",
+              "description": "The desired state of the interface.",
+              "oid": ".1.3.6.1.2.1.2.2.1.7",
+              "name": "ifAdminStatus"
+            },
+            {
+              "type": "int64",
+              "description": "The current operational state of the interface.",
+              "oid": ".1.3.6.1.2.1.2.2.1.8",
+              "name": "ifOperStatus"
+            },
+            {
+              "type": "string",
+              "description": "The name of the interface.",
+              "oid": ".1.3.6.1.2.1.31.1.1.1.1",
+              "name": "ifName"
+            },
+            {
+              "type": "int64",
+              "description": "HP Config MIB - hpSwitchPortTable.hpSwitchPortTrunkGroup",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.7.1.3.1.1.8",
+              "name": "hpSwitchPortTrunkGroup"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "HP-Device-Interface-Inventory.js"
+      }
+    },
+    "MemoryInventory": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "GlobalMemory",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "name": "hpGlobalMemSlotIndex",
+              "description": "The slot number within the box for which this entry contains information.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.1",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemSlotCnt",
+              "description": "The current number of discretely managed memory areas. Each slab is further broken down into smaller contiguous areas called segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.2",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemFreeSegCnt",
+              "description": "The current number of free memory segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.3",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemAllocSegCnt",
+              "description": "The number of currently allocated memory segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.4",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemTotalBytes",
+              "description": "The number of currently installed bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.5",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemFreeBytes",
+              "description": " The number of available (unallocated) bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.6",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemAllocBytes",
+              "description": " The number of available allocated bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.7",
+              "type": "init32"
+            }
+          ]
+        },
+        {
+          "name": "LocalMemory",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "name": "hpLocalMemSlotIndex",
+              "description": "The slot number within the box for which this entry contains information.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.1",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemSlotCnt",
+              "description": "The current number of discretely managed memory areas. Each slab is further broken down into smaller contiguous areas called segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.2",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemFreeSegCnt",
+              "description": "The current number of free memory segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.3",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemAllocSegCnt",
+              "description": "The number of currently allocated memory segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.4",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemTotalBytes",
+              "description": "The number of currently installed bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.5",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemFreeBytes",
+              "description": " The number of available (unallocated) bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.6",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemAllocBytes",
+              "description": " The number of available allocated bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.7",
+              "type": "init32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Hp-ProCurve-GlobalMemory.js"
+      }
+    },
+    "MemoryMonitoring": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "GlobalMemory",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "name": "hpGlobalMemSlotIndex",
+              "description": "The slot number within the box for which this entry contains information.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.1",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemSlotCnt",
+              "description": "The current number of discretely managed memory areas. Each slab is further broken down into smaller contiguous areas called segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.2",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemFreeSegCnt",
+              "description": "The current number of free memory segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.3",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemAllocSegCnt",
+              "description": "The number of currently allocated memory segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.4",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemTotalBytes",
+              "description": "The number of currently installed bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.5",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemFreeBytes",
+              "description": " The number of available (unallocated) bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.6",
+              "type": "init32"
+            },
+            {
+              "name": "hpGlobalMemAllocBytes",
+              "description": " The number of available allocated bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.2.1.1.7",
+              "type": "init32"
+            }
+          ]
+        },
+        {
+          "name": "LocalMemory",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "name": "hpLocalMemSlotIndex",
+              "description": "The slot number within the box for which this entry contains information.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.1",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemSlotCnt",
+              "description": "The current number of discretely managed memory areas. Each slab is further broken down into smaller contiguous areas called segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.2",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemFreeSegCnt",
+              "description": "The current number of free memory segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.3",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemAllocSegCnt",
+              "description": "The number of currently allocated memory segments.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.4",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemTotalBytes",
+              "description": "The number of currently installed bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.5",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemFreeBytes",
+              "description": " The number of available (unallocated) bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.6",
+              "type": "init32"
+            },
+            {
+              "name": "hpLocalMemAllocBytes",
+              "description": " The number of available allocated bytes.",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.7",
+              "type": "init32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Hp-ProCurve-GlobalMemory.js"
+      }
+    },
+    "CPUInventory": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "Cpu",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": "cpu utilized in percentage",
+              "name": "cpuutilization",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.9.6.1.0",
+              "type": "init32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Hp-ProCurve-Cpu.js"
+      }
+    },
+    "CPUMonitoring": {
+      "entityType": "SCALAR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "Cpu",
+          "queryType": "GET",
+          "fields": [
+            {
+              "description": "cpu utilized in percentage",
+              "name": "cpuutilization",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.5.1.9.6.1.0",
+              "type": "init32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Hp-ProCurve-Cpu.js"
+      }
+    },
+    "FanInventory": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "SensorTable",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "description": "A number which identifies a particular sensor from other sensors of the same kind. For instance, if there are many temperature sensors in this chassis, this number whould identify a particular temperature sensor in this chassis.",
+              "name": "hpicfSensorNumber",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.3",
+              "type": "int32"
+            },
+            {
+              "description": "Actual status indicated by the sensor. .",
+              "name": "hpicfSensorStatus",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.4",
+              "type": "int32"
+            },
+            {
+              "description": "The number of times hpicfSensorStatus has entered the 'warning'(3) state.",
+              "name": "hpicfSensorWarnings",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.5",
+              "type": "int32"
+            },
+            {
+              "description": "The number of times hpicfSensorStatus has entered the 'bad'(2) state.",
+              "name": "hpicfSensorFailures",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.6",
+              "type": "int32"
+            },
+            {
+              "description": "A textual description of the sensor.",
+              "name": "hpicfSensorDescr",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.7",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Hp-ProCurve-Fan.js"
+      }
+    },
+    "PowerSupplyInventory": {
+      "entityType": "VECTOR",
+      "properties": [],
+      "queries": [
+        {
+          "name": "PowerSupply",
+          "queryType": "TABLE",
+          "fields": [
+            {
+              "description": "A number which identifies a particular sensor from other sensors of the same kind. For instance, if there are many temperature sensors in this chassis, this number whould identify a particular temperature sensor in this chassis.",
+              "name": "hpicfSensorNumber",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.3",
+              "type": "int32"
+            },
+            {
+              "description": "Actual status indicated by the sensor. .",
+              "name": "hpicfSensorStatus",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.4",
+              "type": "int32"
+            },
+            {
+              "description": "The number of times hpicfSensorStatus has entered the 'warning'(3) state.",
+              "name": "hpicfSensorWarnings",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.5",
+              "type": "int32"
+            },
+            {
+              "description": "The number of times hpicfSensorStatus has entered the 'bad'(2) state.",
+              "name": "hpicfSensorFailures",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.6",
+              "type": "int32"
+            },
+            {
+              "description": "A textual description of the sensor.",
+              "name": "hpicfSensorDescr",
+              "oid": ".1.3.6.1.4.1.11.2.14.11.1.2.6.1.7",
+              "type": "int32"
+            }
+          ]
+        }
+      ],
+      "computation": {
+        "scriptName": "Hp-ProCurve-PowerSupply.js"
+      }
+    }
+  }
+}

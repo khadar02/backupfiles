@@ -1,0 +1,469 @@
+{
+  "id": "4ece3245-7db2-45c8-ac00-22a5228e1237",
+  "type": "DEVICE",
+  "name": "HP Generic Device",
+  "description": "Monitoring profile for HP devices",
+  "vendor": "Hewlett-Packard",
+  "osType": "*",
+  "family": "*",
+  "protocol": ".*SNMP.*",
+  "customerId": "*",
+  "isDefault": true,
+  "locked": true,
+  "origin": "SYSTEM",
+  "status": "ACTIVE",
+  "createdAt": 0,
+  "updatedBy": "SYSTEM",
+  "updatedAt": 1546405834000,
+  "features": [
+    {
+      "id": "io.macaw.feature.icmp_device_availability",
+      "name": "ICMP Device Availability",
+      "type": "reachability",
+      "enabled": true,
+      "schedule": "sys_every_1_minute",
+      "scheduleLabel": "Every 1 minute",
+      "metrics": [
+        {
+          "id": "io.macaw.feature.icmp_device_availability.metric.reachability",
+          "name": "ICMP Device Reachability(%)",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "io.macaw.feature.icmp_device_availability.metric.reachability.alert",
+              "name": "ICMP Device Reachability(%)",
+              "type": "ICMP Device Reachability(%)",
+              "category": "Device",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${reachabilityStatus} != ${highWaterMarkValue}",
+                  "clear": "${reachabilityStatus} == ${highWaterMarkValue}",
+                  "highWaterMarkPercent": 0,
+                  "lowWaterMarkPercent": 0,
+                  "highWaterMarkValue": 100,
+                  "lowWaterMarkValue": 100,
+                  "severity": "CRITICAL",
+                  "minimumOccurrence": 3,
+                  "highWaterMarkLabel": "Device Reachability(%)",
+                  "lowWaterMarkLabel": "Device Reachability(%)",
+                  "message": "Device is unreachable via ICMP"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "io.macaw.feature.device_availability",
+      "name": "Device Availability",
+      "type": "availability",
+      "enabled": true,
+      "schedule": "sys_every_3_minutes",
+      "scheduleLabel": "Every 3 minutes",
+      "metrics": [
+        {
+          "id": "io.macaw.feature.device_avalability.metric.availability_percent",
+          "name": "Device Availability(%)",
+          "enabled": true
+        },
+        {
+          "id": "io.macaw.feature.device_avalability.metric.reachability_percent",
+          "name": "SNMP Device Reachability(%)",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "io.macaw.feature.device_avalability.metric.reachability_percent.alert",
+              "name": "SNMP Device Reachability(%)",
+              "type": "SNMP Device Reachability(%)",
+              "category": "Device",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${reachabilityStatus} != ${highWaterMarkValue}",
+                  "clear": "${reachabilityStatus} == ${highWaterMarkValue}",
+                  "highWaterMarkPercent": 0,
+                  "lowWaterMarkPercent": 0,
+                  "highWaterMarkValue": 100,
+                  "lowWaterMarkValue": 0,
+                  "severity": "CRITICAL",
+                  "minimumOccurrence": 3,
+                  "highWaterMarkLabel": "Device Reachability(%)",
+                  "lowWaterMarkLabel": "Device Reachability(%)",
+                  "message": "Device is unreachable via SNMP"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "id": "io.macaw.feature.device_info_inventory",
+      "name": "Device Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+    {
+      "id": "io.macaw.feature.generic.device.interface.trunk.inventory",
+      "name": "Interface Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+    {
+      "id": "io.macaw.feature.device_module_inventory",
+      "name": "Device Module Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+    {
+      "id": "io.macaw.feature.device_physical_interface_inventory",
+      "name": "Device Physical Interface Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+    {
+      "id": "io.macaw.feature.interface.management",
+      "name": "Interface Management",
+      "type": "monitoring",
+      "enabled": true,
+      "schedule": "sys_every_4_hours",
+      "scheduleLabel": "Every 4 hours",
+      "contextType": "Interface",
+      "contextId": "Managed-Interfaces-Trunking-NonCDP"
+    },
+    {
+      "id": "io.macaw.feature.device_interface_monitoring",
+      "name": "Interface Monitoring",
+      "type": "monitoring",
+      "enabled": true,
+      "schedule": "sys_every_5_minutes",
+      "scheduleLabel": "Every 5 minutes",
+      "contextType": "Interface",
+      "contextId": "UP-Interfaces",
+      "metrics": [
+        {
+          "id": "io.macaw.feature.device_interface_monitoring.metric.packetdrops",
+          "name": "Interface Packet Drops",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.packetdrops.totalErrors.alert",
+              "name": "Interface Packet Errors(%)",
+              "type": "Interface Packet Errors(%)",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": false,
+              "criteria": [
+                {
+                  "active": "(${totalIfErrorsPercent} > ${highWaterMarkValue})",
+                  "clear": "",
+                  "highWaterMarkPercent": 0,
+                  "lowWaterMarkPercent": 0,
+                  "highWaterMarkValue": 30,
+                  "lowWaterMarkValue": 0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 1,
+                  "message": "Interface \"${ifDescr}\" packet errors[${totalIfErrorsPercent}%] exceeded configured value ${highWaterMarkValue}%"
+                }
+              ]
+            },
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.packetdrops.totalDiscards.alert",
+              "name": "Interface Packet Discards(%)",
+              "type": "Interface Packet Discards(%)",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": false,
+              "criteria": [
+                {
+                  "active": "(${totalIfDiscardsPercent}  > ${highWaterMarkValue})",
+                  "clear": "",
+                  "highWaterMarkPercent": 0,
+                  "lowWaterMarkPercent": 0,
+                  "highWaterMarkValue": 30,
+                  "lowWaterMarkValue": 0,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 1,
+                  "message": "Interface \"${ifDescr}\" packet discards[${totalIfDiscardsPercent}%] exceeded configured value ${highWaterMarkValue}%"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "io.macaw.feature.device_interface_monitoring.metric.utilization",
+          "name": "Interface In Bits Utilization(%)",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.utilizationIn.alert",
+              "name": "Interface In Bit Utilization",
+              "type": "Interface In Bit Utilization",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${utilizationIn} > ${highWaterMarkValue}",
+                  "clear": "${utilizationIn} < ${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0,
+                  "lowWaterMarkPercent": 0,
+                  "highWaterMarkValue": 90,
+                  "lowWaterMarkValue": 80,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Interface \"${ifDescr}\" In Bit utilization [${utilizationIn}%] exceeded configured threshold ${highWaterMarkValue}%"
+                }
+              ]
+            },
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.utilizationOut.alert",
+              "name": "Interface Out Bit Utilization",
+              "type": "Interface Out Bit Utilization",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${utilizationOut} > ${highWaterMarkValue}",
+                  "clear": "${utilizationOut} < ${lowWaterMarkValue}",
+                  "highWaterMarkPercent": 0,
+                  "lowWaterMarkPercent": 0,
+                  "highWaterMarkValue": 90,
+                  "lowWaterMarkValue": 80,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Interface \"${ifDescr}\" Out Bit utilization [${utilizationOut}%] exceeded configured threshold ${highWaterMarkValue}%"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "io.macaw.feature.device_interface_monitoring.metric.operStatus",
+          "name": "Interface Operational State",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "io.macaw.feature.device_interface_monitoring.metric.operStatus.alert",
+              "name": "Interface Operational State",
+              "type": "Interface Operational State",
+              "category": "Interface",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${ifOperStatus} != ${highWaterMarkValue}",
+                  "clear": "${ifOperStatus} == ${highWaterMarkValue}",
+                  "highWaterMarkPercent": 0,
+                  "lowWaterMarkPercent": 0,
+                  "highWaterMarkValue": 1,
+                  "lowWaterMarkValue": 1,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Interface \"${ifDescr}\" is down"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "device-package-memory-inventory-generic",
+      "name": "Memory Pool Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+    {
+      "id": "device-package-memory-monitoring-generic",
+      "name": "Memory Pool Monitoring",
+      "type": "monitoring",
+      "enabled": true,
+      "schedule": "sys_every_5_minutes",
+      "scheduleLabel": "Every 5 minutes",
+      "metrics": [
+        {
+          "id": "device-package-memory-monitoring-generic-utilization",
+          "name": "Memory Pool Usage(%)",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "device_package_memory_monitoring_generic_utilization_alert",
+              "name": "Memory Pool Usage",
+              "type": "Memory Pool Usage",
+              "category": "Memory",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${utilization} > ${highWaterMarkValue}",
+                  "clear": "${utilization} < ${lowWaterMarkValue}",
+                  "highWaterMarkLabel": "Memory Utilization Exceeds",
+                  "lowWaterMarkLabel": "Memory Utilization Falls below",
+                  "highWaterMarkValue": 90,
+                  "lowWaterMarkValue": 80,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "${name} usage [${utilization}%] exceeded configured value ${highWaterMarkValue}%"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "device-package-cpu-inventory",
+      "name": "CPU Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+    {
+      "id": "device-package-cpu-monitoring",
+      "name": "CPU Monitoring",
+      "type": "monitoring",
+      "enabled": true,
+      "schedule": "sys_every_5_minutes",
+      "scheduleLabel": "Every 5 minutes",
+      "metrics": [
+        {
+          "id": "device-package-cpu-monitoring-utilization",
+          "name": "CPU Utilization(%)",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "device_package_cpu_monitoring_utilization_alert",
+              "name": "CPU Utilization",
+              "type": "CPU Utilization",
+              "category": "CPU",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${utilization} > ${highWaterMarkValue}",
+                  "clear": "${utilization} < ${lowWaterMarkValue}",
+                  "highWaterMarkLabel": "CPU Utilization Exceeds",
+                  "lowWaterMarkLabel": "CPU Utilization Falls below",
+                  "highWaterMarkValue": 90,
+                  "lowWaterMarkValue": 80,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "${name} Utilization [${utilization}%] exceeded configured value ${highWaterMarkValue}%"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "device-package-fan-inventory",
+      "name": "Fan Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+    {
+      "id": "device-package-fan-monitoring",
+      "name": "Fan Status Monitoring",
+      "type": "monitoring",
+      "enabled": true,
+      "schedule": "sys_every_5_minutes",
+      "scheduleLabel": "Every 5 minutes",
+      "metrics": [
+        {
+          "id": "device-package-fan-monitoring-status",
+          "name": "Fan Status Monitoring",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "device-package-fan-monitoring-status-alert",
+              "name": "Fan Status",
+              "type": "Fan",
+              "category": "Fan",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${statusValue} != ${highWaterMarkValue}",
+                  "clear": "${statusValue} == ${highWaterMarkValue}",
+                  "highWaterMarkLabel": "Fan Status Exceeds",
+                  "lowWaterMarkLabel": "Fan Status Fall Below",
+                  "highWaterMarkValue": 100,
+                  "lowWaterMarkValue": 100,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Fan status is ${StatusString}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "device-package-power-supply-inventory",
+      "name": "Power Supply Inventory",
+      "type": "inventory",
+      "enabled": true,
+      "schedule": "sys_every_1_hr",
+      "scheduleLabel": "Every 1 hour"
+    },
+    {
+      "id": "device-package-power-supply-monitoring",
+      "name": "Power Supply Status Monitoring",
+      "type": "monitoring",
+      "enabled": true,
+      "schedule": "sys_every_5_minutes",
+      "scheduleLabel": "Every 5 minutes",
+      "metrics": [
+        {
+          "id": "device-package-power-supply-monitoring-status",
+          "name": "Power Supply Status Monitoring",
+          "enabled": true,
+          "alerts": [
+            {
+              "id": "device_package_power_supply_monitoring_alert",
+              "name": "Power Supply Status",
+              "type": "Power Supply",
+              "category": "Power Supply",
+              "clazz": "threshold",
+              "enabled": true,
+              "criteria": [
+                {
+                  "active": "${status} != ${highWaterMarkValue}",
+                  "clear": "${status} == ${highWaterMarkValue}",
+                  "highWaterMarkLabel": "Power Supply Status Exceeds",
+                  "lowWaterMarkLabel": "Power Supply Status Falls below",
+                  "highWaterMarkValue": 100,
+                  "lowWaterMarkValue": 100,
+                  "severity": "MAJOR",
+                  "minimumOccurrence": 3,
+                  "message": "Power Supply status is ${StatusString}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
